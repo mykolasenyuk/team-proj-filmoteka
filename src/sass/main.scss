@@ -6,3 +6,40 @@
 // Стили для файла с примером HTML-фрагмента
 @import './example';
 @import './base.scss';
+a {
+  display: block;
+  text-decoration: none;
+}
+
+.page {
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
