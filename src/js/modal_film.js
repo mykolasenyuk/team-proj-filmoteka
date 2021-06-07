@@ -3,6 +3,7 @@ console.log(btnModalImgClose);
 const backdropModalImg = document.querySelector('.backdrop');
 console.log(backdropModalImg);
 btnModalImgClose.addEventListener('click', onBtnModalImgClose);
+backdropModalImg.addEventListener('click', onBtnModalImgClose);
 export default function onBtnModalImgClose() {
   backdropModalImg.classList.add('is-hidden');
 }
@@ -10,4 +11,4 @@ export default function onBtnModalImgClose() {
 // btnModalImgClose.addEventListener('click', closeModalClick);
 // function closeModalClick() {
 //   backdropModalImg.classList.add('is-close');
-// };
+//
