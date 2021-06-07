@@ -164,12 +164,12 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-check:checked + .modal-check-text::before {
-  background-image: url(../img/iconcheck.svg);
-  border: none;
-}
+// .modal-check:checked + .modal-check-text::before {
+//   background-image: url(../img/iconcheck.svg);
+//   border: none;
+// }
 .modal-check-text::before {
-  content: "";
+  content: '';
   display: inline-flex;
   width: 16px;
   height: 15px;
