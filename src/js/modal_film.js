@@ -1,11 +1,30 @@
-const btnModalImgClose = document.querySelector('.button__close');
-console.log(btnModalImgClose);
-const backdropModalImg = document.querySelector('.backdrop');
-console.log(backdropModalImg);
-btnModalImgClose.addEventListener('click', onBtnModalImgClose);
-backdropModalImg.addEventListener('click', onBtnModalImgClose);
-export default function onBtnModalImgClose() {
-  backdropModalImg.classList.add('is-hidden');
+const refs = {
+  backdropModalImg: document.querySelector('.backdrop'),
+  btnModalImgClose: document.querySelector('.button__close'),
+  buttonWatched: document.querySelector('.add_watched'),
+  buttonUser: document.querySelector('.add_queue'),
+};
+console.log(refs.backdropModalImg);
+console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
+refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
+refs.btnModalImgClose.addEventListener('click', onBtnModalClose);
+function onBackdropModalClose(e) {
+  if (e.target.classList.value === 'backdrop') {
+    refs.backdropModalImg.classList.add('is-hidden');
+    console.log(e.target);
+  }
+  return;
+}
+function onBtnModalClose(e) {
+  refs.backdropModalImg.classList.add('is-hidden');
+  // console.log(e.target);
+}
+window.addEventListener('keydown', closeModalEscape);
+function closeModalEscape(e) {
+  if (e.code === 'Escape') {
+    refs.backdropModalImg.classList.add('is-hidden');
+  }
+  return;
 }
 
 // btnModalImgClose.addEventListener('click', closeModalClick);
@@ -19,11 +38,6 @@ listWatched.classList.add('modal_list_watched');
 const listWillWatch = document.createElement('ul');
 listWillWatch.classList.add('modal_list_willwatch');
 
-const refs = {
-  buttonWatched: document.querySelector('.add_watched'),
-  buttonUser: document.querySelector('.add_queue'),
-};
-
 /* FT - 18 По нажатию на кнопку "Add to watched"
 фильм добавляется в просмотренные
 фильмы текущего пользователя(local - storage) */
@@ -34,14 +48,14 @@ const refs = {
 
 /* console.log(localStorage); */
 
-refs.buttonWatched(click, onAddWatched);
-function onAddWatched() {
-  console.log(e.currentTarget);
-  const movie = e.currentTarget;
-  localStorage.setItem(movie);
-  listWatched.insertAdjacentHTML('beforeend', localStorage.setItem(movie));
-}
-refs.buttonUser(click, onHaveToWatch);
+// refs.buttonWatched(click, onAddWatched);
+// function onAddWatched() {
+//   console.log(e.currentTarget);
+//   const movie = e.currentTarget;
+//   localStorage.setItem(movie);
+//   listWatched.insertAdjacentHTML('beforeend', localStorage.setItem(movie));
+// }
+// refs.buttonUser(click, onHaveToWatch);
 
 function closeModalCardMovie(e) {
   const onOverlayCloseBtn = e.target !== lightboxCloseBtn;
