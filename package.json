@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "spin.js": "^4.1.0",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "spin.js": "^4.1.0"
   }
 }
