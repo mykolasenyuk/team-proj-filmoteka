@@ -1,6 +1,6 @@
 import { getTrendingMovies } from './services/apiService.js';
 import moviesList from '../templates/hero_movies.hbs';
-import "../sass/base/container.scss";
+import "../sass/main.scss";
 
 
 

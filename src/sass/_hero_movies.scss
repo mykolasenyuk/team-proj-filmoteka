@@ -1,0 +1,28 @@
+.movies-card {
+  max-width: 280px;
+  max-height: 440px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.movies-card:last-child {
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 767px) {
+  .movies {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .movies-card {
+    max-width: 293px;
+    max-height: 440px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    // margin-right: 20px;
+  }
+
+  .movies-card:nth-child(2n + 1) {
+    margin-right: 20px;
+  }
+}
