@@ -1,0 +1,17 @@
+{{#each this}}
+<div class="movies-card">
+    <img src="{{webformatURL}}" alt="{{largeImageURL}}" />
+
+    <div class="description">
+        <p class="description-item">    
+            {{title}}
+        </p>
+        <p class="description-item">  
+            {{genre_ids}}
+        </p>
+        <p class="description-item">   
+            {{release_date}}
+        </p>
+    </div>
+</div>
+{{/each}}
