@@ -1,12 +1,12 @@
 {
-  "name": "team-proj-filmoteka",
+  "name": "modal_about_us",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://mykolasenyuk.github.io/team-proj-filmoteka",
+  "homepage": "https://mykolasenyuk.github.io/modal_about_us",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-proj-filmoteka/"
+    "build": "parcel build src/*.html --public-url /modal_about_us/"
   },
   "repository": {
     "type": "git",
