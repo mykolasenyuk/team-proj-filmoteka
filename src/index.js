@@ -1,2 +1,3 @@
-import '../sass/modal_about_us.scss';
+import './sass/modal_about_us.scss';
+
 
