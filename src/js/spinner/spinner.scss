@@ -1,0 +1,10 @@
+@keyframes spinner-line-fade-quick {
+  0%,
+  49%,
+  100% {
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}

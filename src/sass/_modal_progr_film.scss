@@ -74,6 +74,9 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
+    /*  margin-top: 231px;
+    margin-left: 75px;
+    margin-right: 75px; */
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -104,6 +107,7 @@ p {
     margin-left: 30px;
   }
 }
+
 .title_modal_progr {
   font-family: Roboto;
   font-weight: 500;
@@ -128,12 +132,29 @@ p {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.vote_grade::before {
+  content: '';
+  display: block;
+  position: absolute;
+
+  width: 36px;
+  height: 16px;
+  background-color: #ff6b01;
+  border-radius: 5px;
+  /*   top: 0px; */
+}
+
+.vote_grade {
+  position: relative;
+}
+
 .data_items_modal_progr {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   color: #000000;
-  margin-left: 39px;
+  /*  margin-left: 39px; */
 }
 .description_modal_progr {
   font-style: normal;
