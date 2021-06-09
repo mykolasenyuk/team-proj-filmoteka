@@ -70,12 +70,11 @@
     text-align: center;
     letter-spacing: 0.03em;
     color: var(--primary-text-color);
-    padding-bottom: 40px;
-    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-top: 30px;
   }
 
   & label {
-    display: flex;
     padding-bottom: 4px;
     font-weight: normal;
     font-size: 12px;
@@ -205,9 +204,12 @@
   padding-bottom: 50px;
 }
 .section-names {
-  display: -webkit-inline-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .sectin-names-shadow {
+  width: 200px;
   list-style: none;
   background: var(--white-color);
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
@@ -220,6 +222,7 @@
 // }
 .section-title-names,
 .section-title-position {
+  text-align: center;
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 16px;
@@ -230,4 +233,11 @@
   color: var(--title-text-color);
   font-weight: normal;
   padding-top: 10px;
+}
+.name-section-one {
+  display: flex;
+  margin-bottom: 50px;
+}
+.name-section_two {
+  display: flex;
 }
