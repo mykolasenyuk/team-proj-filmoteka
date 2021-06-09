@@ -1,3 +1,4 @@
+
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
   btnModalImgClose: document.querySelector('.button__close'),
@@ -48,6 +49,7 @@ listWillWatch.classList.add('modal_list_willwatch');
 
 /* console.log(localStorage); */
 
+
 // refs.buttonWatched(click, onAddWatched);
 // function onAddWatched() {
 //   console.log(e.currentTarget);
@@ -73,3 +75,4 @@ function removeAtributes() {
   lightBoxImage.src = '';
   lightBoxImage.alt = '';
 }
+
