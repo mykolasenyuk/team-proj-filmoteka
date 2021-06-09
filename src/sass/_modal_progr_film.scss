@@ -254,3 +254,8 @@ ul {
 .upper_title {
   text-transform: uppercase;
 }
+
+.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
