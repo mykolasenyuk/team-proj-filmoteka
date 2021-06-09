@@ -1,3 +1,5 @@
+import movieCardTmpl from '../templates/cardMovie.hbs';
+console.log(movieCardTmpl)
 
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
@@ -29,19 +31,20 @@ function closeModalEscape(e) {
 
 
 
-refs.moviesCard.addEventListener("click", addOpenLightboxClass);
-function addOpenLightboxClass(e) {
+/* refs.moviesCard.addEventListener('click', onImageGalleryList);
+ function onImageGalleryList(e) {
   e.preventDefault();
-  if (e.target.localName !== "img") {
+  if (e.target.classList.value !== "movies-card") {
     return;
   }
   addOpenLightboxClass();
- /*  addAttributes(e); */
+  addAttributes(e);
 }
 function addOpenLightboxClass() {
   refs.backdropModalImg.classList.add("is-open");
-}
+} */
+
+
 /* function addAttributes(evt) {
-  lightBoxImage.src = evt.target.dataset.source;
-  lightBoxImage.alt = evt.target.alt;
+  movieCardTmpl
 } */

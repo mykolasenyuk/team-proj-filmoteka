@@ -60,9 +60,10 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 280px;
-  // height: auto;
+  
  padding: 48px 20px 40px;
   background-color: #ffffff;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
     max-width: 618px;
     padding-left: 28px;
@@ -70,9 +71,8 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
-    /*  margin-top: 231px;
-    margin-left: 75px;
-    margin-right: 75px; */
+     margin-top: 231px;
+    
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -80,6 +80,7 @@ p {
     padding-right: 30px;
     padding-top: 50px;
     padding-bottom: 40px;
+    margin-top: 100px;
   }
 }
 .button__close {
@@ -118,7 +119,7 @@ p {
   }
 }
 .title_info_modal_progr {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 16px;
   color: #8c8c8c;
@@ -129,29 +130,22 @@ p {
   margin-bottom: 20px;
 }
 
-/* .vote_grade::before {
-  content: '';
-  display: block;
-  position: absolute;
 
-  width: 36px;
-  height: 16px;
-  background-color: #ff6b01;
-  border-radius: 5px;
- 
-} */
 .vote_grade {
+  font-weight: 500;
+  color:#ffffff;
   width: 36px;
   height: 16px;
   background-color: #FF6B01;
   border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-bottom: 1px;
+  padding-left: 8px;
+  padding-right: 8px;
 
 }
 
 .vote_distance {
-  margin-right: 41px;
+  margin-right: 47px;
   @media screen and (min-width: 1024px) {
     margin-right: 85px;
   }
@@ -175,8 +169,15 @@ p {
   }
 }
 
+.about {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+text-transform: uppercase;
+}
+
 .data_items_modal_progr {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   color: #000000;
@@ -184,13 +185,14 @@ p {
 }
 .description_modal_progr {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 20px;
   margin-top: 10px;
   margin-bottom: 21px;
 }
 .add_watched {
+  display: block;
   width: 112.58px;
   height: 44px;
   background: #ff6b01;
@@ -200,6 +202,7 @@ p {
   line-height: 16px;
   color: #ffffff;
   @media screen and (min-width: 768px) {
+    
     width: 125px;
     height: 44px;
     font-size: 12px;
@@ -239,9 +242,10 @@ p {
   height: 30px;
 }
 .modal__img {
+  width: 251px;
   @media screen and (min-width: 768px) {
     width: 264px;
-    height: 374px;
+  /*   height: 374px; */
   }
   @media screen and (min-width: 1024px) {
     width: 396px;
