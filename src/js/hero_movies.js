@@ -4,9 +4,10 @@ import "../sass/main.scss";
 
 
 
+
 const moviesContainer = document.querySelector('.js-movies-container');
 
-console.log(moviesContainer);
+// console.log(moviesContainer);
 
 const renderMoviesList = data => {
     const markup = moviesList(data);
