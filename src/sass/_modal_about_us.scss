@@ -16,10 +16,12 @@
   transform: translate(-50%, -50%);
   width: 1800px;
   min-height: 600px;
-  background-color: var(--white-color);
+  background-color: gainsboro;
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 2px 1px rgb(0 0 0 / 20%);
   border-radius: 4px;
+  border: 25px outset;
+  border-color: aliceblue;
 
   @media screen and (max-width: 480px) {
     width: 460px;
@@ -211,7 +213,7 @@
 .sectin-names-shadow {
   width: 200px;
   list-style: none;
-  background: var(--white-color);
+  background: ghostwhite;
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 2px 1px rgb(0 0 0 / 20%);
   border-radius: 0px 0px 4px 4px;
@@ -228,6 +230,7 @@
   font-size: 16px;
   line-height: 1.187;
   letter-spacing: 0.03em;
+  padding-top: 10px;
 }
 .section-title-position {
   color: var(--title-text-color);
@@ -240,4 +243,5 @@
 }
 .name-section_two {
   display: flex;
+  padding-bottom: 40px;
 }
