@@ -65,4 +65,4 @@ const e={backdropModalImg:document.querySelector(".backdrop"),btnModalImgClose:d
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/services/apiService"),require("./js/modal_film");
 },{"./sass/main.scss":"clu1","./js/services/apiService":"o1Xb","./js/modal_film":"ty4h"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-proj-filmoteka/src.89a74869.js.map
+//# sourceMappingURL=/team-proj-filmoteka/src.43041aec.js.map
