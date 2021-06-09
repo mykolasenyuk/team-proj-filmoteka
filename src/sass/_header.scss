@@ -89,13 +89,13 @@ header {
 .search__form {
   display: flex;
   justify-content: center;
-  align-items: flex-end; //! Alex: changed value from center to align with microphone
+  align-items: flex-end;
 }
 
 .search__input-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-end; //! Alex: changed value from center to align with microphone
+  align-items: flex-end;
   flex-wrap: no-wrap;
   margin: 0 auto;
   position: relative;
@@ -106,7 +106,7 @@ header {
   &::after {
     content: '';
     position: absolute;
-    bottom: 6px; //! Alex: corrected from 0px
+    bottom: 6px;
     right: 0;
     width: 12px;
     height: 12px;
