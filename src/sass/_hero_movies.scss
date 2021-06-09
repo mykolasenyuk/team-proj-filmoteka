@@ -1,11 +1,16 @@
 .description {
+  display: flex;
+  flex-direction: column;
   padding-top: 10px;
+}
+
+.movies-card-img {
+  border-radius: 5px;
 }
 
 .movies-card {
   max-width: 280px;
   max-height: 440px;
-  border-radius: 5px;
   margin-bottom: 20px;
 }
 
@@ -29,8 +34,15 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
+  display: flex;
 
   color: #ff6b08;
+}
+
+.description-release-date {
+  margin-left: 2px;
+  padding-left: 2px;
+  border-left: solid 2px #ff6b08;
 }
 
 @media screen and (min-width: 768px) {
