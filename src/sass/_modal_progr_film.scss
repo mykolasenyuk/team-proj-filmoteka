@@ -43,8 +43,7 @@ p {
   transition: all 250ms linear;
   // padding-left: 28px;
   // padding-right: 30px;
-  padding-top: 42px;
-  padding-bottom: 40px;
+ 
 
   &.is-hidden {
     transform: translate(-50%, -50%) scale(0);
@@ -53,10 +52,7 @@ p {
     pointer-events: none;
   }
 }
-// .backdrop.is-close {
-//   opacity: 0;
-//   pointer-events: none;
-// }
+
 
 .container_modal_progr {
   position: relative;
@@ -65,7 +61,7 @@ p {
   transform: translate(-50%, -50%);
   max-width: 280px;
   // height: auto;
-  padding: 48px 20px 40px;
+ padding: 48px 20px 40px;
   background-color: #ffffff;
   @media screen and (min-width: 768px) {
     max-width: 618px;
@@ -74,6 +70,9 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
+    /*  margin-top: 231px;
+    margin-left: 75px;
+    margin-right: 75px; */
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -104,6 +103,7 @@ p {
     margin-left: 30px;
   }
 }
+
 .title_modal_progr {
   font-family: Roboto;
   font-weight: 500;
@@ -128,12 +128,59 @@ p {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+/* .vote_grade::before {
+  content: '';
+  display: block;
+  position: absolute;
+
+  width: 36px;
+  height: 16px;
+  background-color: #ff6b01;
+  border-radius: 5px;
+ 
+} */
+.vote_grade {
+  width: 36px;
+  height: 16px;
+  background-color: #FF6B01;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+
+.vote_distance {
+  margin-right: 41px;
+  @media screen and (min-width: 1024px) {
+    margin-right: 85px;
+  }
+}
+.popularity_distance {
+  margin-right: 53px;
+  @media screen and (min-width: 1024px) {
+    margin-right: 97px;
+  }
+}
+.title_distance {
+  margin-right: 39px;
+  @media screen and (min-width: 1024px) {
+    margin-right: 83px;
+  }
+}
+.genre_distance {
+  margin-right: 76px;
+  @media screen and (min-width: 1024px) {
+    margin-right: 120px;
+  }
+}
+
 .data_items_modal_progr {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   color: #000000;
-  margin-left: 39px;
+  /*  margin-left: 39px; */
 }
 .description_modal_progr {
   font-style: normal;

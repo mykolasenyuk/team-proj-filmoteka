@@ -1,8 +1,18 @@
-// Стили для файла с примером HTML-фрагмента
-/* @import './example'; */
-// @import './base.scss';
-@import './modal_progr_film.scss';
-@import './utils/variables';
+//base
 @import './base/common';
 @import './base/container';
 @import './hero_movies';
+
+
+// utils
+@import './utils/variables';
+
+// general sass
+@import './header';
+@import './modal_progr_film';
+@import './modal_about_us';
+@import './footer';
+// components
+// @import './components/button';
+
+
