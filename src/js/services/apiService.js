@@ -20,7 +20,7 @@ export default class ApiService {
       .get(
         `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
       )
-      .then(({ data }) => data.results);
+      .then(({ data }) => data);
 
     return filmsByQuery;
   }

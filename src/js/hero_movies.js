@@ -1,6 +1,7 @@
 import moviesList from '../templates/hero_movies.hbs';
 import '../sass/main.scss';
 import ApiService from './services/apiService';
+import { startSpin, stopSpin } from './spinner/spinner';
 
 const apiService = new ApiService();
 const moviesContainer = document.querySelector('.js-movies-container');
@@ -13,7 +14,7 @@ const renderMoviesList = data => {
 };
 // console.log(apiService.getTrendingMovies().then(data => data.results));
 const trendingFilms = apiService.getTrendingMovies().then(data => data.results);
-console.log(trendingFilms);
+// console.log(trendingFilms);
 // trendingFilms.then(renderMoviesList);
 
 // вставляем жанры и фиксим дату
@@ -30,5 +31,5 @@ function addGenrestoTrending() {
   });
 }
 // console.log(addGenrestoTrending());
-
+startSpin();
 addGenrestoTrending().then(renderMoviesList);
