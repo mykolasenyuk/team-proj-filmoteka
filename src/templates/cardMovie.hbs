@@ -3,10 +3,10 @@
     <div class="container_modal_progr">
         <button type="button" class="button__close" data-modal-close>
         </button>
-        <img class="img modal__img" src={{backdrop_path}} alt={{original_title}} />
+        <img class="img modal__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" />
         <!-- </div> -->
         <div class="card_modal_progr">
-            <h1 class="title_modal_progr upper_title">{{original_title}}</h1>
+            <h1 class="title_modal_progr upper_title">{{title}}</h1>
             <div class="info_modal_progr">
                 <!--   <div class="title_info_modal_progr"> -->
                 <ul>
@@ -21,7 +21,7 @@
                     </li>
                     <li>
                         <span class="title_info_modal_progr">Original Title</span>
-                        <span class="data_items_modal_progr upper_title">{{original_title}}</span>
+                        <span class="data_items_modal_progr upper_title">{{title}}</span>
                     </li>
                     <li>
                         <span class="title_info_modal_progr">Genre</span>
@@ -31,7 +31,7 @@
             </div>
             <p>ABOUT</p>
             <p class="description_modal_progr">
-                {{overview}}
+                {{tagline}}
             </p>
             <div class="buttons_modal_progr">
                 <button type="button" class="add_watched">ADD TO WATCHED</button>
