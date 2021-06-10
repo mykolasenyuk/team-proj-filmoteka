@@ -21,6 +21,7 @@
 .description-title {
   font-family: Roboto;
   font-style: normal;
+  text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -51,6 +52,7 @@
     flex-wrap: wrap;
   }
   .movies-card {
+    position: relative;
     max-width: 293px;
     max-height: 440px;
     border-radius: 5px;
@@ -88,4 +90,24 @@
   .movies-card:nth-child(3n) {
     margin-right: 0;
   }
+}
+
+.movies-card-vote {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 20px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.17;
+  color: $color-light;
+  background-color: $color-accent;
+  border-radius: 5px;
 }

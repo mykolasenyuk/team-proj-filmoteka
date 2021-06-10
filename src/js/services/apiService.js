@@ -3,27 +3,47 @@ import axios from 'axios';
 const API_KEY = '1aa8151ecc72e8e6dae871e3aeaed3b2';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-export async function getTrendingMovies() {
-  const tredingFilms = await axios
-    .get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
-    .then(({ data }) => data.results);
+export default class ApiService {
+  constructor() {
+    this.searchQuery = '';
+    this.page = 1;
+  }
+  getTrendingMovies() {
+    const tredingFilms = axios
+      .get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.page}`)
+      .then(({ data }) => data);
+    return tredingFilms;
+  }
 
-  return tredingFilms;
-  
-}
+  getMovieByQuery() {
+    const filmsByQuery = axios
+      .get(
+        `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
+      )
+      .then(({ data }) => data);
 
-export async function getMovieByQuery(query) {
-  const filmsByQuery = await axios
-    .get(`${BASE_URL}/search/movie?api_key=${API_KEY}` + query)
-    .then(({ data }) => data);
+    return filmsByQuery;
+  }
+  getMovieById() {
+    const genresIds = axios
+      .get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+      .then(({ data }) => data.genres);
 
-  return filmsByQuery;
-}
+    return genresIds;
+  }
 
-export async function getMovieById(id) {
-  const filmsById = await axios
-    .get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
-    .then(({ data }) => data);
+  get query() {
+    return this.searchQuery;
+  }
 
-  return filmsById;
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+  resetPage() {
+    this.page = 1;
+  }
 }
