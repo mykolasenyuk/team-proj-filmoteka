@@ -1,4 +1,5 @@
 import movieCardTmpl from '../templates/cardMovie.hbs';
+
 console.log(movieCardTmpl)
 
 const refs = {
