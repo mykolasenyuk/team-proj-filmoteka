@@ -1,18 +1,15 @@
 //base
+@import './utils/variables';
 @import './base/common';
 @import './base/container';
-@import './hero_movies';
-
 
 // utils
-@import './utils/variables';
 
 // general sass
 @import './header';
+@import './hero_movies';
 @import './modal_progr_film';
 @import './modal_about_us';
 @import './footer';
 // components
 // @import './components/button';
-
-
