@@ -1,3 +1,7 @@
+.hero {
+  padding: 20px 0 40px 0;
+}
+
 .description {
   display: flex;
   flex-direction: column;
@@ -15,7 +19,7 @@
 }
 
 .movies-card:last-child {
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .description-title {
@@ -47,6 +51,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .hero {
+    padding: 60px 0 50px 0;
+  }
+
   .movies {
     display: flex;
     flex-wrap: wrap;
