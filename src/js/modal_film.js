@@ -30,12 +30,15 @@ function onBackdropModalClose(e) {
   return;
 }
 
+
 function onBtnModalClose(e) {
   refs.backdropModalImg.classList.remove("is-open");
   refs.backdropModalImg.classList.add('is-hidden');
   // console.log(e.target);
 }
+
 window.addEventListener('keydown', closeModalEscape);
+
 function closeModalEscape(e) {
   if (e.code === 'Escape') {
     refs.backdropModalImg.classList.remove("is-open");
@@ -57,13 +60,11 @@ function onOpenModalFilmCard(e) {
   console.log(movieId)
 
   addOpenLightboxClass()
-  const apiFetch = apiService.getModalMovie(movieId).then(data => data);
-  
-  return apiFetch;
+  apiService.getModalMovie(movieId).then(data => renderModal(data))
 };
 
-const renderModal = apiFetch => {
-  const modalMarkapMovieCard = movieCardTmpl(apiFetch);
+const renderModal = data => {
+  const modalMarkapMovieCard = movieCardTmpl(data);
   console.log(modalMarkapMovieCard)
   refs.backdropModalImg.insertAdjacentHTML('beforeend',modalMarkapMovieCard);
 }
