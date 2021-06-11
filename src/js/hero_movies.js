@@ -2,6 +2,7 @@ import moviesList from '../templates/hero_movies.hbs';
 import '../sass/main.scss';
 import ApiService from './services/apiService';
 import { startSpin, stopSpin } from './spinner/spinner';
+import { compile } from 'handlebars';
 
 const apiService = new ApiService();
 const moviesContainer = document.querySelector('.js-movies-container');
@@ -11,7 +12,12 @@ const moviesContainer = document.querySelector('.js-movies-container');
 const renderMoviesList = data => {
   const markup = moviesList(data);
   moviesContainer.insertAdjacentHTML('beforeend', markup);
+  const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
+  moviesCardVoteEl.forEach(classList => {
+    classList.classList.add("is-hidden");
+  });
 };
+
 // console.log(apiService.getTrendingMovies().then(data => data.results));
 const trendingFilms = apiService.getTrendingMovies().then(data => data.results);
 // console.log(trendingFilms);
