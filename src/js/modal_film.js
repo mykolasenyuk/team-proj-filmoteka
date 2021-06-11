@@ -1,31 +1,47 @@
 import movieCardTmpl from '../templates/cardMovie.hbs';
-/* import moviesList from '../templates/hero_movies.hbs'; */
-
-console.log(moviesList)
-
+import moviesList from '../templates/hero_movies.hbs';
+import ApiService from './services/apiService';
+// console.log(moviesList)
+const apiService = new ApiService;
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
   btnModalImgClose: document.querySelector('.button__close'),
-  moviesCard: document.querySelector('.movies-card'),
+  
 };
-console.log(refs.backdropModalImg);
-console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
+// console.log(refs.backdropModalImg);
+// console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
 refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
-refs.btnModalImgClose.addEventListener('click', onBtnModalClose);
+addEventListener('click', onBtnModalClose);
+
+// Откритие модалки
+document.querySelector('.movies-card');
+addEventListener('click', onOpenModalFilmCard);
+function addOpenLightboxClass() {
+  refs.backdropModalImg.classList.add("is-open");
+  refs.backdropModalImg.classList.remove('is-hidden');
+} 
+
 function onBackdropModalClose(e) {
   if (e.target.classList.value === 'backdrop') {
+    refs.backdropModalImg.classList.remove("is-open");
     refs.backdropModalImg.classList.add('is-hidden');
-    console.log(e.target);
+    console.log(e.target.classList.value);
   }
   return;
 }
+
+
 function onBtnModalClose(e) {
+  refs.backdropModalImg.classList.remove("is-open");
   refs.backdropModalImg.classList.add('is-hidden');
   // console.log(e.target);
 }
+
 window.addEventListener('keydown', closeModalEscape);
+
 function closeModalEscape(e) {
   if (e.code === 'Escape') {
+    refs.backdropModalImg.classList.remove("is-open");
     refs.backdropModalImg.classList.add('is-hidden');
   }
   return;
@@ -33,21 +49,27 @@ function closeModalEscape(e) {
 
 
 
- refs.moviesCard.addEventListener('click', onImageGalleryList);
- function onImageGalleryList(e) {
+function onOpenModalFilmCard(e) {
+  
   e.preventDefault();
-  if (e.target.classList.value !== "movies-card") {
+  
+  if (e.target.nodeName !== 'IMG') {
     return;
   }
-  addOpenLightboxClass();
-  /* apiService.fetchPicture().then((data) => {
-    clearCardList();
-    movieCardTmpl(data);
-  }); */    
+  const movieId = Number(e.target.dataset.action)
+  console.log(movieId)
+
+  addOpenLightboxClass()
+  apiService.getModalMovie(movieId).then(data => renderModal(data))
+};
+
+const renderModal = data => {
+  const modalMarkapMovieCard = movieCardTmpl(data);
+  console.log(modalMarkapMovieCard)
+  refs.backdropModalImg.insertAdjacentHTML('beforeend',modalMarkapMovieCard);
 }
-function addOpenLightboxClass() {
-  refs.backdropModalImg.classList.add("is-open");
-} 
+// movie/${movie_id}?api_key=${apiKey}
+ 
 
 /* function movieCardInfo(data) {
   listEl.insertAdjacentHTML("beforeend", movieCardTmpl(data));

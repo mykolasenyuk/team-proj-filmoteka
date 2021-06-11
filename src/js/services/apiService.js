@@ -32,6 +32,7 @@ export default class ApiService {
     return genresIds;
   }
 
+
   getModalMovie(movieId) {
     const movieById = axios
       .get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
