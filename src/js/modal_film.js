@@ -1,8 +1,8 @@
 import movieCardTmpl from '../templates/cardMovie.hbs';
 import moviesList from '../templates/hero_movies.hbs';
-
+import ApiService from './services/apiService';
 // console.log(moviesList)
-
+const apiService = new ApiService;
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
   btnModalImgClose: document.querySelector('.button__close'),
@@ -11,7 +11,7 @@ const refs = {
 // console.log(refs.backdropModalImg);
 // console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
 refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
-refs.btnModalImgClose.addEventListener('click', onBtnModalClose);
+addEventListener('click', onBtnModalClose);
 
 // Откритие модалки
 document.querySelector('.movies-card');
@@ -53,11 +53,20 @@ function onOpenModalFilmCard(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
   }
-  const mivieId = e.target.dataset.action
-  console.log(mivieId)
+  const movieId = Number(e.target.dataset.action)
+  console.log(movieId)
 
   addOpenLightboxClass()
+  const apiFetch = apiService.getModalMovie(movieId).then(data => data);
+  
+  return apiFetch;
 };
+
+const renderModal = apiFetch => {
+  const modalMarkapMovieCard = movieCardTmpl(apiFetch);
+  console.log(modalMarkapMovieCard)
+  refs.backdropModalImg.insertAdjacentHTML('beforeend',modalMarkapMovieCard);
+}
 // movie/${movie_id}?api_key=${apiKey}
  
 
