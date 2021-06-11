@@ -69,7 +69,11 @@
   }
 
   .movies-card:last-child {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+  }
+
+  .movies-card:nth-last-child(2) {
+    margin-bottom: 0px;
   }
 
   .movies-card:nth-child(2n + 1) {
