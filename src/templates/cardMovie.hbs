@@ -1,39 +1,70 @@
-<div class="container_modal_progr">
-    <button type="button" class="button__close" data-modal-close>
-    </button>
-    <img class="img modal__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" />
-    <!-- </div> -->
-    <div class="card_modal_progr">
-        <h1 class="title_modal_progr upper_title">{{title}}</h1>
-        <div class="info_modal_progr">
-            <!--   <div class="title_info_modal_progr"> -->
-            <ul>
-                <li>
-                    <span class="title_info_modal_progr">Vote/Votes</span>
-                    <span class="data_items_modal_progr vote_grade">{{vote_average}}</span>/<span
-                        class="data_items_modal_progr">{{vote_count}}</span>
-                </li>
-                <li>
-                    <span class="title_info_modal_progr">Popularity</span>
-                    <span class="data_items_modal_progr">{{popularity}}</span>
-                </li>
-                <li>
-                    <span class="title_info_modal_progr">Original Title</span>
-                    <span class="data_items_modal_progr upper_title">{{title}}</span>
-                </li>
-                <li>
-                    <span class="title_info_modal_progr">Genre</span>
-                    <span class="data_items_modal_progr">{{genres.name}}</span>
-                </li>
-            </ul>
-        </div>
-        <p>ABOUT</p>
-        <p class="description_modal_progr">
-            {{tagline}}
-        </p>
-        <div class="buttons_modal_progr">
-            <button type="button" class="add_watched">ADD TO WATCHED</button>
-            <button type="button" class="add_queue">ADD TO QUEUE</button>
-        </div>
+<div class='container_modal_progr'>
+  <button type='button' class='button__close' data-modal-close>
+  </button>
+  <img
+    class='img modal__img'
+    src="https://image.tmdb.org/t/p/w500{{poster_path}}"
+    alt="{{title}}"
+  />
+  <!-- </div> -->
+  <div class='card_modal_progr'>
+    <h1 class='title_modal_progr upper_title'>
+      {{title}}
+    </h1>
+    <div class='info_modal_progr'>
+      <!--   <div class="title_info_modal_progr"> -->
+      <ul>
+        <li class='info_modal_progr_item'>
+          <span class='title_info_modal_progr vote_distance'>
+            Vote/Votes
+          </span>
+          <span class='data_items_modal_progr vote_average'>
+            {{vote_average}}
+          </span>
+          /
+          <span class='data_items_modal_progr vote_count'>
+            {{vote_count}}
+          </span>
+        </li>
+        <li class='info_modal_progr_item'>
+          <span class='title_info_modal_progr popularity_distance'>
+            Popularity
+          </span>
+          <span class='data_items_modal_progr'>
+            {{popularity}}
+          </span>
+        </li>
+        <li class='info_modal_progr_item'>
+          <span class='title_info_modal_progr title_distance'>
+            Original Title
+          </span>
+          <span class='data_items_modal_progr upper_title'>
+            {{title}}
+          </span>
+        </li>
+        <li class='info_modal_progr_item'>
+          <span class='title_info_modal_progr genre_distance'>
+            Genre
+          </span>
+          <span class='data_items_modal_progr'>
+            {{genres.name}}
+          </span>
+        </li>
+      </ul>
     </div>
+    <p>
+      ABOUT
+    </p>
+    <p class='description_modal_progr'>
+      {{overview}}
+    </p>
+    <div class='buttons_modal_progr'>
+      <button type='button' class='add_watched'>
+        ADD TO WATCHED
+      </button>
+      <button type='button' class='add_queue'>
+        ADD TO QUEUE
+      </button>
+    </div>
+  </div>
 </div>
