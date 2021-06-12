@@ -41,9 +41,9 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 250ms linear;
+  z-index: 9999;
   // padding-left: 28px;
   // padding-right: 30px;
- 
 
   &.is-hidden {
     transform: translate(-50%, -50%) scale(0);
@@ -53,15 +53,14 @@ p {
   }
 }
 
-
 .container_modal_progr {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 280px;
-  
- padding: 48px 20px 40px;
+
+  padding: 48px 20px 40px;
   background-color: #ffffff;
   margin-top: 20px;
   @media screen and (min-width: 768px) {
@@ -71,8 +70,7 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
-     margin-top: 231px;
-    
+    margin-top: 231px;
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -130,18 +128,16 @@ p {
   margin-bottom: 20px;
 }
 
-
 .vote_grade {
   font-weight: 500;
-  color:#ffffff;
+  color: #ffffff;
   width: 36px;
   height: 16px;
-  background-color: #FF6B01;
+  background-color: #ff6b01;
   border-radius: 5px;
   padding-bottom: 1px;
   padding-left: 8px;
   padding-right: 8px;
-
 }
 
 .vote_distance {
@@ -173,7 +169,7 @@ p {
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .data_items_modal_progr {
@@ -202,7 +198,6 @@ text-transform: uppercase;
   line-height: 16px;
   color: #ffffff;
   @media screen and (min-width: 768px) {
-    
     width: 125px;
     height: 44px;
     font-size: 12px;
@@ -245,7 +240,7 @@ text-transform: uppercase;
   width: 251px;
   @media screen and (min-width: 768px) {
     width: 264px;
-  /*   height: 374px; */
+    /*   height: 374px; */
   }
   @media screen and (min-width: 1024px) {
     width: 396px;
