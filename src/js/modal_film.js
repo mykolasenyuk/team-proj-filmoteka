@@ -53,7 +53,7 @@ function onOpenModalFilmCard(e) {
   }
   const movieId = Number(e.target.dataset.action);
   console.log(movieId);
-
+  clearCardList()
   addOpenLightboxClass();
   apiService.getModalMovie(movieId).then(data => renderModal(data));
 }
@@ -63,12 +63,7 @@ const renderModal = data => {
   console.log(modalMarkapMovieCard);
   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
 };
-// movie/${movie_id}?api_key=${apiKey}
 
-// /* function movieCardInfo(data) {
-//   listEl.insertAdjacentHTML("beforeend", movieCardTmpl(data));
-
-// }
 function clearCardList() {
-  listEl.innerHTML = '';
+  refs.backdropModalImg.innerHTML = '';
 }
