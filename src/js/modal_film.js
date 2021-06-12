@@ -1,3 +1,4 @@
+
 import movieCardTmpl from '../templates/cardMovie.hbs';
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
@@ -71,10 +72,10 @@ const renderModal = data => {
 // movie/${movie_id}?api_key=${apiKey}
  
 
-/* function movieCardInfo(data) {
-  listEl.insertAdjacentHTML("beforeend", movieCardTmpl(data));
+// /* function movieCardInfo(data) {
+//   listEl.insertAdjacentHTML("beforeend", movieCardTmpl(data));
  
-}
-function clearCardList() {
-  listEl.innerHTML = "";
-} */
+// }
+// function clearCardList() {
+//   listEl.innerHTML = "";
+// } */

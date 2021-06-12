@@ -237,3 +237,47 @@ header {
     }
   }
 }
+
+.visually-hidden {
+  display: none;
+}
+.watched-button,
+.queue-button {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  width: 136px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
+  left: 21px;
+  top: 121px;
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.watched-button:focus,
+.queue-button:focus {
+  background-color: #ff6b01;
+  border: none;
+}
+.watched-button:hover,
+.queue-button:hover {
+  background-color: #ff6b01;
+  border: none;
+}
+.button {
+  margin-left: 15px;
+
+  align-items: center;
+
+  justify-content: center;
+}

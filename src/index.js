@@ -7,3 +7,4 @@ import './js/onSearch';
 // import movieCardTmpl from './templates/cardMovie.hbs';
 
 import './js/about_us';
+import './js/my-library';
