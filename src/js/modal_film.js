@@ -1,12 +1,13 @@
 import movieCardTmpl from '../templates/cardMovie.hbs';
 /* import moviesList from '../templates/hero_movies.hbs'; */
+import ApiService from './services/apiService';
 
-console.log(moviesList)
+console.log(movieCardTmpl)
 
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
   btnModalImgClose: document.querySelector('.button__close'),
-  moviesCard: document.querySelector('.movies-card'),
+ 
 };
 console.log(refs.backdropModalImg);
 console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
@@ -33,14 +34,14 @@ function closeModalEscape(e) {
 
 
 
- refs.moviesCard.addEventListener('click', onImageGalleryList);
+ document.querySelector('#movies-card').addEventListener('click', onImageGalleryList);
  function onImageGalleryList(e) {
   e.preventDefault();
   if (e.target.classList.value !== "movies-card") {
     return;
   }
   addOpenLightboxClass();
-  /* apiService.fetchPicture().then((data) => {
+  /* apiService.getModalMovie().then((data) => {
     clearCardList();
     movieCardTmpl(data);
   }); */    
