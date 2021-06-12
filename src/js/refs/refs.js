@@ -10,6 +10,7 @@ const refs = {
   searchWrap: document.querySelector('.search__input-wrapper'),
   libraryBtnsContainer: document.querySelector('.button-container'),
   
+  
   filterInput: document.querySelectorAll('.filter-input'),
 
   watchedBtn: document.querySelector('.watched-button'),
