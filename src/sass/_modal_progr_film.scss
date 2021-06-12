@@ -41,7 +41,7 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 250ms linear;
-  z-index: 9999;
+  z-index: 1;
   // padding-left: 28px;
   // padding-right: 30px;
 
@@ -126,18 +126,9 @@ p {
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.vote_grade {
-  font-weight: 500;
-  color: #ffffff;
-  width: 36px;
-  height: 16px;
-  background-color: #ff6b01;
-  border-radius: 5px;
-  padding-bottom: 1px;
-  padding-left: 8px;
-  padding-right: 8px;
+  &_item:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .vote_distance {
@@ -175,9 +166,24 @@ p {
 .data_items_modal_progr {
   font-weight: 600;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 16px;
   color: #000000;
   /*  margin-left: 39px; */
+  &.vote_average {
+    color: #ffffff;
+    background-color: #ff6b01;
+    border-radius: 5px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  &.vote_count {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 .description_modal_progr {
   font-style: normal;
