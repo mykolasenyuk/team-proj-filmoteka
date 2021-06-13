@@ -24,5 +24,7 @@ refs.homeBtn.addEventListener('click', (event) => {
     console.log(event.target)
     refs.homeBtn.classList.add('current');
     refs.libraryBtn.classList.remove('current');
+    refs.searchWrap.classList.remove('visually-hidden');
+    refs.libraryBtnsContainer.classList.add('visually-hidden');
 }
 )
