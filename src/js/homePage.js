@@ -53,10 +53,12 @@ renderMoviesPage();
 //   apiService.getTrendingMovies().then(data => renderPagination(data.total_pages, data.resulst)),
 // );
 function trendingFilmsPagination() {
-  apiService.getTrendingMovies().then(data => renderPagination);
+  apiService
+    .getTrendingMovies()
+    .then(data => renderPagination(data.total_pages, data.results, moviesByPage));
 }
 trendingFilmsPagination();
-console.log(apiService.getTrendingMovies().then(data => renderPagination(data.total_pages)));
+
 // function getMoviesByPage(page) {
 //   apiService.page = page;
 //   //   console.log(apiService.getTrendingMoviesPage());
@@ -64,21 +66,20 @@ console.log(apiService.getTrendingMovies().then(data => renderPagination(data.to
 // }
 // console.log(getMoviesByPage());
 
+// function moviesByPage(page) {
+//   clearMarkup();
+//   apiService.getTrendingMoviesPage(page);
+//   //   console.log(getMoviesByPage());
+// }
 // console.log(moviesByPage());
 
-const btn = document.querySelector('.pagenumbers');
-btn.addEventListener('click', numbers);
-console.log(btn);
-const num = Number(btn.textContent);
-const numPage = num + 1;
-console.log(numPage);
+// const btn = document.querySelector('.pagenumbers');
+// console.log(btn);
+// const num = Number(btn.textContent);
+// const numPage = num + 1;
+// console.log(numPage);
+// btn.addEventListener('click', numbers);
 
-function numbers() {
-  apiService.getTrendingMoviesPage(numPage);
-}
-function moviesByPage() {
-  clearMarkup();
-  apiService.getTrendingMoviesPage(numPage);
-  //   console.log(getMoviesByPage());
-}
-moviesByPage();
+// function numbers() {
+//   apiService.getTrendingMoviesPage(numPage);
+// }
