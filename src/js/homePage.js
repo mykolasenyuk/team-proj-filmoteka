@@ -1,34 +1,14 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
-
 import { renderPagination } from './pagination';
-// import { startSpin, stopSpin } from './spinner/spinner';
-
 
 const apiService = new ApiService();
 
 const moviesContainer = document.querySelector('.js-movies-container');
 
-
 const logo = document.querySelector('.logo');
 const homeBtn = document.querySelector('.home-button');
 // console.log(apiService.trendingFilms());
-
-renderPage();
-trendingFilmsPagination();
-
-homeBtn.addEventListener('click', onLogo);
-
-logo.addEventListener('click', onLogo);
-
-function onLogo(evt) {
-  evt.preventDefault();
-  clearMarkup();
-  // startSpin();
-  renderPage();
-  trendingFilmsPagination();
-  // stopSpin();
-}
 
 function trendingFilms() {
   return apiService
@@ -56,10 +36,9 @@ function renderFilmsCard(data) {
 
 function renderPage() {
   apiService.page = 1;
-  trendingFilms()
-    .then(renderFilmsCard)
-    .catch(error => console.log('eRROR'));
+  trendingFilms().then(renderFilmsCard);
 }
+renderPage();
 
 function trendingMoviesByPage(page) {
   apiService.pageNum = page;
@@ -69,9 +48,7 @@ function trendingMoviesByPage(page) {
 
 function moviesByPage(wrapper, page) {
   wrapper.innerHTML = '';
-  trendingMoviesByPage(page)
-    .then(renderFilmsCard)
-    .catch(error => console.log('errr'));
+  trendingMoviesByPage(page).then(renderFilmsCard);
 }
 
 function trendingFilmsPagination() {
@@ -79,5 +56,36 @@ function trendingFilmsPagination() {
     renderPagination(data.total_pages, data.results, moviesByPage);
   });
 }
+trendingFilmsPagination();
+
+// // logo.addEventListener('click', onLogo);
+// // function onLogo(evt) {
+// //   evt.preventDefault();
+// //   renderMoviesPage();
+// // }
+
+// // homeBtn.addEventListener('click', onLogo);
+
+// // console.log(apiService.getTrendingMovies().then(pages => pages.total_pages));
+// // console.log(trendingFilms);
+// // trendingFilms.then(renderMoviesList);
+// // console.log(
+// //   apiService.getTrendingMovies().then(data => renderPagination(data.total_pages, data.resulst)),
+// // );
+// function trendingFilmsPagination() {
+//   apiService
+//     .getTrendingMovies()
+//     .then(data => renderPagination(data.total_pages, data.results, moviesByPage));
+// }
+// trendingFilmsPagination();
+
+// function moviesByPage(page) {
+//   clearMarkup();
+//   apiService.getTrendingMoviesPage(page);
+//   //   console.log(getMoviesByPage());
+// }
+// console.log(moviesByPage());
+
+// console.log(trendingFilms());
 
 // console.log(apiService.getTrendingMovies());

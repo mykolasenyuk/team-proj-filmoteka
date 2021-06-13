@@ -32,16 +32,12 @@ function onFilmSearch(e) {
   //   console.log(e.currentTarget.elements.query.value);
   const result = apiService.getMovieByQuery(apiService.searchQuery);
   //   renderSearchMoviesList(result).then(data => data.results);
-  apiService.getMovieByQuery(apiService.searchQuery);
+  // apiService.getMovieByQuery(apiService.searchQuery);
 
   const searchingFilms = apiService
-    .getMovieByQuery(apiService.searchQuery)
-    .then(data => data.results);
-
-  // вставляем жанры и фиксим дату
-
-  function addGenrestoSearching() {
-    return searchingFilms.then(data => {
+    .getMovieByQuery(apiService.searchQuery, (apiService.page = 2))
+    .then(data => data.results)
+    .then(data => {
       return apiService.getMovieById().then(genresArray => {
         return data.map(film => ({
           ...film,
@@ -50,7 +46,25 @@ function onFilmSearch(e) {
         }));
       });
     });
-  }
-  addGenrestoSearching().then(renderSearchMoviesList);
-  apiService.incrementPage();
+
+  // searchingFilms.then(renderSearchMoviesList);
+  // console.log(searchingFilms);
 }
+// function more() {
+//   clearMarkup();
+//   const searchingFilms = apiService
+//     .getMovieByQuery(apiService.searchQuery, apiService.page)
+//     .then(data => data.results)
+//     .then(data => {
+//       return apiService.getMovieById().then(genresArray => {
+//         return data.map(film => ({
+//           ...film,
+//           release_date: film.release_date.slice(0, 4),
+//           genres: film.genre_ids.map(id => genresArray.filter(el => el.id === id)).flat(),
+//         }));
+//       });
+//     });
+//   searchingFilms.then(renderSearchMoviesList);
+//   // console.log(searchingFilms);
+// }
+// more();
