@@ -1,11 +1,14 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
+
 import { renderPagination } from './pagination';
 // import { startSpin, stopSpin } from './spinner/spinner';
+
 
 const apiService = new ApiService();
 
 const moviesContainer = document.querySelector('.js-movies-container');
+
 
 const logo = document.querySelector('.logo');
 const homeBtn = document.querySelector('.home-button');

@@ -6,6 +6,5 @@ import './js/hero_movies';
 import './js/onSearch';
 // import './js/homePage';
 
-// import movieCardTmpl from './templates/cardMovie.hbs';
-
 import './js/about_us';
+import './js/my-library';

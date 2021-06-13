@@ -32,12 +32,23 @@ export default class ApiService {
     return genresIds;
   }
 
+
   getTrendingMoviesPage(page) {
     const tredingFilms = axios
       .get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`)
       .then(({ data }) => data);
     return tredingFilms;
   }
+
+
+  getModalMovie(movieId) {
+    const movieById = axios
+      .get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
+      .then(({ data }) => data);
+    return movieById;
+  }
+  // вызываем apiService.getModalMovie(id-фильма);
+
 
   get query() {
     return this.searchQuery;

@@ -41,9 +41,9 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 250ms linear;
+  z-index: 1;
   // padding-left: 28px;
   // padding-right: 30px;
- 
 
   &.is-hidden {
     transform: translate(-50%, -50%) scale(0);
@@ -53,15 +53,14 @@ p {
   }
 }
 
-
 .container_modal_progr {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 280px;
-  
- padding: 48px 20px 40px;
+
+  padding: 48px 20px 40px;
   background-color: #ffffff;
   margin-top: 20px;
   @media screen and (min-width: 768px) {
@@ -71,8 +70,7 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
-     margin-top: 231px;
-    
+    margin-top: 231px;
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -123,31 +121,21 @@ p {
   font-size: 12px;
   line-height: 16px;
   color: #8c8c8c;
+  max-width: 200px;
 }
 .info_modal_progr {
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-
-.vote_grade {
-  font-weight: 500;
-  color:#ffffff;
-  width: 36px;
-  height: 16px;
-  background-color: #FF6B01;
-  border-radius: 5px;
-  padding-bottom: 1px;
-  padding-left: 8px;
-  padding-right: 8px;
-
+  &_item:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .vote_distance {
   margin-right: 47px;
   @media screen and (min-width: 1024px) {
-    margin-right: 85px;
+    margin-right: 92px;
   }
 }
 .popularity_distance {
@@ -173,15 +161,31 @@ p {
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .data_items_modal_progr {
   font-weight: 600;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 16px;
   color: #000000;
   /*  margin-left: 39px; */
+  &.vote_average {
+    color: #ffffff;
+    background-color: #ff6b01;
+    border-radius: 5px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-right: 3px;
+  }
+  &.vote_count {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 .description_modal_progr {
   font-style: normal;
@@ -201,8 +205,8 @@ text-transform: uppercase;
   font-size: 12px;
   line-height: 16px;
   color: #ffffff;
+  border: none;
   @media screen and (min-width: 768px) {
-    
     width: 125px;
     height: 44px;
     font-size: 12px;
@@ -242,14 +246,13 @@ text-transform: uppercase;
   height: 30px;
 }
 .modal__img {
-  width: 251px;
+  width: 240px;
   @media screen and (min-width: 768px) {
     width: 264px;
-  /*   height: 374px; */
+   
   }
   @media screen and (min-width: 1024px) {
     width: 396px;
-    /*    height: 477px; */
   }
 }
 ul {
