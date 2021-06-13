@@ -1,8 +1,8 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
-
 import { renderPagination } from './pagination';
-// import { startSpin, stopSpin } from './spinner/spinner';
+import { startSpin, stopSpin } from './spinner/spinner';
+import '../sass/main.scss';
 
 
 const apiService = new ApiService();
@@ -52,6 +52,13 @@ function clearMarkup() {
 
 function renderFilmsCard(data) {
   moviesContainer.insertAdjacentHTML('beforeend', moviesList(data));
+   const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
+   moviesCardVoteEl.forEach(classList => {
+    classList.classList.add("is-hidden");
+   });
+  
+  stopSpin();
+
 }
 
 function renderPage() {

@@ -1,29 +1,28 @@
 {{#each this}}
-  <li class='movies-card' >
-    <p class='movies-card-vote'>
-      {{vote_average}}
-    </p>
-    <img data-action='{{id}}'
-      class='movies-card-img'
-      src="https://image.tmdb.org/t/p/w500{{poster_path}}"
-      alt="{{title}}"
-      
-    />
-
-    <div class='description'>
-      <p class='description-title'>
-        {{title}}
+<div class="movies-card-wrapper">
+    <li class='movies-card'>
+      <p class='movies-card-vote'>
+        {{vote_average}}
       </p>
-      <div class='description-genre-release-date'>
-        <p class='description-genre'>
-          {{#each genres}}
+      <img data-action='{{id}}' class='movies-card-img' src="https://image.tmdb.org/t/p/w500{{poster_path}}"
+        alt="{{title}}" />
+    
+      <div class='description'>
+        <p class='description-title'>
+          {{title}}
+        </p>
+        <div class='description-genre-release-date'>
+          <p class='description-genre'>
+            {{#each genres}}
             {{name}}
-          {{/each}}
-        </p>
-        <p class='description-release-date'>
-          {{release_date}}
-        </p>
+            {{/each}}
+          </p>
+          <p class='description-release-date'>
+            {{release_date}}
+          </p>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
+</div>
+
 {{/each}}
