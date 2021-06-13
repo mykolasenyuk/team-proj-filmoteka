@@ -121,6 +121,7 @@ p {
   font-size: 12px;
   line-height: 16px;
   color: #8c8c8c;
+  max-width: 200px;
 }
 .info_modal_progr {
   display: flex;
@@ -134,7 +135,7 @@ p {
 .vote_distance {
   margin-right: 47px;
   @media screen and (min-width: 1024px) {
-    margin-right: 85px;
+    margin-right: 92px;
   }
 }
 .popularity_distance {
@@ -176,6 +177,7 @@ p {
     padding-bottom: 1px;
     padding-left: 8px;
     padding-right: 8px;
+    margin-right: 3px;
   }
   &.vote_count {
     background-color: #f7f7f7;
@@ -203,6 +205,7 @@ p {
   font-size: 12px;
   line-height: 16px;
   color: #ffffff;
+  border: none;
   @media screen and (min-width: 768px) {
     width: 125px;
     height: 44px;
@@ -243,14 +246,13 @@ p {
   height: 30px;
 }
 .modal__img {
-  width: 251px;
+  width: 240px;
   @media screen and (min-width: 768px) {
     width: 264px;
-    /*   height: 374px; */
+   
   }
   @media screen and (min-width: 1024px) {
     width: 396px;
-    /*    height: 477px; */
   }
 }
 ul {

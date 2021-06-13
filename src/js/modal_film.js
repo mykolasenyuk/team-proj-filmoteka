@@ -6,6 +6,8 @@ const apiService = new ApiService();
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
   btnModalImgClose: document.querySelector('.button__close'),
+ /*  btnWatchedMovies: document.querySelector('.add_watched'),
+btnWillWatchMovie: document.querySelector('.add_queue') */
 };
 // console.log(refs.backdropModalImg);
 // console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
@@ -53,7 +55,7 @@ function onOpenModalFilmCard(e) {
   }
   const movieId = Number(e.target.dataset.action);
   console.log(movieId);
-
+  clearCardList()
   addOpenLightboxClass();
   apiService.getModalMovie(movieId).then(data => renderModal(data));
 }
@@ -63,12 +65,19 @@ const renderModal = data => {
   console.log(modalMarkapMovieCard);
   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
 };
-// movie/${movie_id}?api_key=${apiKey}
 
-// /* function movieCardInfo(data) {
-//   listEl.insertAdjacentHTML("beforeend", movieCardTmpl(data));
-
-// }
 function clearCardList() {
-  listEl.innerHTML = '';
+  refs.backdropModalImg.innerHTML = '';
 }
+
+
+
+
+ /* document.querySelector('.add_watched').addEventListener('click', onAddWatchedMovies) ;
+ function onAddWatchedMovies() {
+   const movieId = Number(e.target.dataset.action);
+localStorage.setItem(Watched, movieId)
+} 
+ */
+
+
