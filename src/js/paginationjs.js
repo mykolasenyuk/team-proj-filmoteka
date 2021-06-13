@@ -1,4 +1,4 @@
-import Handlebars from '../templates/paginationjs.hbs';
+import $ from '../templates/paginationjs.hbs';
 
 function simpleTemplating(data) {
     var html = '<ul>';
@@ -10,9 +10,9 @@ function simpleTemplating(data) {
 }
 
 $('#pagination-container').pagination({
-    dataSource: [1, 2, 3, 4, 5, 6, 7, ... 195],
+    dataSource: [1, 2, 3, 4, 5, 6, 7],
     callback: function(data, pagination) {
-        var html = Handlebars.compile($('#template-demo').html(), {
+        var html = simpleTemplating(data).html(), {
             data: data
         });
         $('#data-container').html(html);
