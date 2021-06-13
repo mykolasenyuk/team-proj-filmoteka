@@ -32,20 +32,6 @@ export default class ApiService {
     return genresIds;
   }
 
-  // insertGenresToSearchObj() {
-  //   this.getTrendingMovies()
-  //     .then(data => data.results)
-  //     .then(data => {
-  //       // вставляем жанры и фиксим дату
-  //       return this.getMovieById().then(genresArray => {
-  //         return data.map(film => ({
-  //           ...film,
-  //           release_date: film.release_date.slice(0, 4),
-  //           genres: film.genre_ids.map(id => genresArray.filter(el => el.id === id)).flat(),
-  //         }));
-  //       });
-  //     });
-  // }
   getTrendingMoviesPage(page) {
     const tredingFilms = axios
       .get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`)

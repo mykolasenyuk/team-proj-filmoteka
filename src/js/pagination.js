@@ -1,8 +1,7 @@
-const listElement = document.querySelector('.js-card');
+const listElement = document.querySelector('.js-movies-container');
 const paginationElement = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
-const warningField = document.querySelector('.header-warning');
 let currentPage = 1;
 let pageCount;
 const pagesOnWindow = 5;
@@ -96,10 +95,9 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     if (currentPage == page) button.classList.add('active');
 
     button.addEventListener('click', function () {
-      // warningField.textContent = ``;
-
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage = page;
+      // console.log(currentPage);
       callback(listElement, currentPage, searchQuery);
 
       let current_btn = document.querySelector('.pagenumbers button.active');
@@ -107,7 +105,6 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
 
       button.classList.add('active');
       setupPagination(listItems, paginationElement, rows);
-      // hideExtremeButtons(totalPages);
     });
 
     return button;
@@ -123,7 +120,6 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     }
 
     disableArrowBtn(totalPages);
-    // hideExtremeButtons(totalPages);
   }
 
   // ф-кция для отслеживания кликов по стрелке вправо
@@ -135,37 +131,14 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
       callback(listElement, currentPage, searchQuery);
     }
     disableArrowBtn(totalPages);
-    // hideExtremeButtons(totalPages);
   }
 
   setupPagination(listItems, paginationElement, rows);
   arrowLeft.onclick = onArrowLeftClick;
   arrowRight.onclick = onArrowRightClick;
 
-  // hideExtremeButtons(totalPages);
   disableArrowBtn(totalPages);
 }
-
-// прячет первую и последнюю страницу по бокам для мобильных гаджетов с маленьким экраном
-// function hideExtremeButtons(totalPages) {
-//   try {
-//     if (/Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-//       // код для мобильных устройств
-//       const allPaginationBtns = document.querySelectorAll('#pagination button');
-//       if (currentPage > 3) {
-//         allPaginationBtns[0].classList.add('hide');
-//       } else {
-//         allPaginationBtns[0].classList.remove('hide');
-//       }
-
-//       if (currentPage < totalPages - 3) {
-//         allPaginationBtns[allPaginationBtns.length - 1].classList.add('hide');
-//       } else {
-//         allPaginationBtns[allPaginationBtns.length - 1].classList.remove('hide');
-//       }
-//     }
-//   } catch (error) {}
-// }
 
 paginationElement.addEventListener('click', disableArrowBtnAfterPageClick);
 
