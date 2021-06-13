@@ -1,7 +1,7 @@
 import moviesList from '../templates/hero_movies.hbs';
-import '../sass/main.scss';
+// import '../sass/main.scss';
 import ApiService from './services/apiService';
-import { startSpin, stopSpin } from './spinner/spinner';
+// import { startSpin, stopSpin } from './spinner/spinner';
 
 const apiService = new ApiService();
 const moviesContainer = document.querySelector('.js-movies-container');
@@ -28,12 +28,12 @@ const trendingFilms = apiService
 // console.log(trendingFilms);
 trendingFilms.then(renderMoviesList);
 
-const btn = document.querySelector('.btn');
-btn.addEventListener('click', onPage);
-console.log(btn);
-const num = Number(btn.textContent);
+// const btn = document.querySelector('.btn');
+// btn.addEventListener('click', onPage);
+// console.log(btn);
+// const num = Number(btn.textContent);
 
-console.log(num);
+// console.log(num);
 
 function onPage() {
   clearMarkup();
@@ -56,8 +56,8 @@ function onPage() {
 function clearMarkup() {
   moviesContainer.innerHTML = '';
 }
-onPage();
+// onPage();
 
-const totalPages = apiService.getTrendingMovies().then(pages => pages.total_pages);
+// const totalPages = apiService.getTrendingMovies().then(pages => pages.total_pages);
 
-console.log(to);
+// console.log(totalPages);

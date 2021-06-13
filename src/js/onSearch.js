@@ -47,7 +47,7 @@ function onFilmSearch(e) {
       });
     });
 
-  searchingFilms.then(renderSearchMoviesList);
+  // searchingFilms.then(renderSearchMoviesList);
   // console.log(searchingFilms);
 }
 // function more() {
