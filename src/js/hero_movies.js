@@ -4,11 +4,9 @@ import { renderPagination } from './pagination';
 import { startSpin, stopSpin } from './spinner/spinner';
 import '../sass/main.scss';
 
-
 const apiService = new ApiService();
 
 const moviesContainer = document.querySelector('.js-movies-container');
-
 
 const logo = document.querySelector('.logo');
 const homeBtn = document.querySelector('.home-button');
