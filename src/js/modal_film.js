@@ -6,6 +6,8 @@ const apiService = new ApiService();
 const refs = {
   backdropModalImg: document.querySelector('.backdrop'),
   btnModalImgClose: document.querySelector('.button__close'),
+ /*  btnWatchedMovies: document.querySelector('.add_watched'),
+btnWillWatchMovie: document.querySelector('.add_queue') */
 };
 // console.log(refs.backdropModalImg);
 // console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
@@ -67,3 +69,15 @@ const renderModal = data => {
 function clearCardList() {
   refs.backdropModalImg.innerHTML = '';
 }
+
+
+
+
+ /* document.querySelector('.add_watched').addEventListener('click', onAddWatchedMovies) ;
+ function onAddWatchedMovies() {
+   const movieId = Number(e.target.dataset.action);
+localStorage.setItem(Watched, movieId)
+} 
+ */
+
+
