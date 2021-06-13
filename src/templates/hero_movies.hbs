@@ -1,13 +1,14 @@
 {{#each this}}
-  <li class='movies-card' >
+  <li class='movies-card'>
     <p class='movies-card-vote'>
       {{vote_average}}
     </p>
-    <img data-action='{{id}}'
+    <img
+      data-action="{{id}}"
       class='movies-card-img'
       src="https://image.tmdb.org/t/p/w500{{poster_path}}"
       alt="{{title}}"
-      
+      onError="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';"
     />
 
     <div class='description'>
