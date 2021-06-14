@@ -29,6 +29,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "handlebars": "^4.7.7",
+    "lodash.debounce": "^4.0.8",
     "spin.js": "^4.1.0"
   }
 }

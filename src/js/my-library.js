@@ -1,18 +1,18 @@
+import headerHomeTemplate from '../templates/headerHomeTemplate.hbs';
+import headerLibraryTemplate from '../templates/headerLibraryTemplate.hbs';
+import { renderMarkup, clearMarkup } from './functions';
+import listenInput from './getFilms';
 import {
-  headerRef,
+//   headerRef,
   logoRef,
   navListRef,
-  homeButtonRef,
+  mainHeaderRef,
   libraryButtonRef,
-  headerDynamicContainerRef,
+  headerContainerRef,
   listFilmsRef,
 } from './refs/refs';
-import apiService from './services/apiService';
 
-
-
-
-renderMarkup(headerDynamicContainerRef, pageHeaderHomeTpl()); // Рендер разметки домашней страницы по-умолчанию
+renderMarkup(headerContainerRef, headerHomeTemplate()); // Рендер разметки домашней страницы по-умолчанию
 listenInput();
 
 // Меняет интерфейс хэдэра при выборе страницы
@@ -27,14 +27,14 @@ function onPageChange(e) {
     // Клик не по кнопкам навигации
     (target.closest('a') !== logoRef && target.className !== 'site-nav__button') ||
     // Клик по лого на домашней странице
-    (target.closest('a') === logoRef && homeButtonRef === currentButton)
+    (target.closest('a') === logoRef && mainHeaderRef === currentButton)
   ) {
     return;
   }
 
   // Рендер разметки домашней страницы при клике на кнопку home или логотип
-  if (target === homeButtonRef || target.closest('a') === logoRef) {
-    const home = pageHeaderHomeTpl();
+  if (target === mainHeaderRef || target.closest('a') === logoRef) {
+    const home = headerHomeTemplate();
 
     changePage(home);
     listenInput();
@@ -42,7 +42,7 @@ function onPageChange(e) {
 
   // Рендер разметки библиотеки при клике на кнопку my library
   if (target === libraryButtonRef) {
-    const library = pageHeaderLibraryTpl();
+    const library = headerLibraryTemplate();
 
     changePage(library);
     clearMarkup(listFilmsRef);
@@ -53,14 +53,14 @@ function onPageChange(e) {
 }
 
 function changePage(markup) {
-  clearMarkup(headerDynamicContainerRef);
-  renderMarkup(headerDynamicContainerRef, markup);
+  clearMarkup(headerContainerRef);
+  renderMarkup(headerContainerRef, markup);
 
   changePageHeaderClass();
 }
 
 function changeCurrentButtonClass() {
-  homeButtonRef.classList.toggle('site-nav__button--current');
+  mainHeaderRef.classList.toggle('site-nav__button--current');
   libraryButtonRef.classList.toggle('site-nav__button--current');
 }
 
@@ -70,7 +70,7 @@ function changePageHeaderClass() {
 }
 
 headerRef.addEventListener('click', onPageChange);
-renderMarkup(headerDynamicContainerRef, pageHeaderHomeTpl()); // Рендер разметки домашней страницы по-умолчанию
+renderMarkup(headerContainerRef, headerHomeTemplate()); // Рендер разметки домашней страницы по-умолчанию
 listenInput();
 
 // Меняет интерфейс хэдэра при выборе страницы
@@ -85,14 +85,14 @@ function onPageChange(e) {
     // Клик не по кнопкам навигации
     (target.closest('a') !== logoRef && target.className !== 'site-nav__button') ||
     // Клик по лого на домашней странице
-    (target.closest('a') === logoRef && homeButtonRef === currentButton)
+    (target.closest('a') === logoRef && mainHeaderRef === currentButton)
   ) {
     return;
   }
 
   // Рендер разметки домашней страницы при клике на кнопку home или логотип
-  if (target === homeButtonRef || target.closest('a') === logoRef) {
-    const home = pageHeaderHomeTpl();
+  if (target === mainHeaderRef || target.closest('a') === logoRef) {
+    const home = headerHomeTemplate();
 
     changePage(home);
     listenInput();
@@ -100,7 +100,7 @@ function onPageChange(e) {
 
   // Рендер разметки библиотеки при клике на кнопку my library
   if (target === libraryButtonRef) {
-    const library = pageHeaderLibraryTpl();
+    const library = headerLibraryTemplate();
 
     changePage(library);
     clearMarkup(listFilmsRef);
@@ -111,14 +111,14 @@ function onPageChange(e) {
 }
 
 function changePage(markup) {
-  clearMarkup(headerDynamicContainerRef);
-  renderMarkup(headerDynamicContainerRef, markup);
+  clearMarkup(headerContainerRef);
+  renderMarkup(headerContainerRef, markup);
 
   changePageHeaderClass();
 }
 
 function changeCurrentButtonClass() {
-  homeButtonRef.classList.toggle('site-nav__button--current');
+  mainHeaderRef.classList.toggle('site-nav__button--current');
   libraryButtonRef.classList.toggle('site-nav__button--current');
 }
 

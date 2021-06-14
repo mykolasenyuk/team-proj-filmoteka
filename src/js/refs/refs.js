@@ -1,6 +1,11 @@
-export const headerRef = document.querySelector('.js-page-header');
+export const mainHeaderRef = document.querySelector('.js-page-header');
 export const logoRef = document.querySelector('.js-logo');
 export const navListRef = document.querySelector('.js-navigation-list');
 export const homeButtonRef = document.querySelector('[data-button="home"]');
 export const libraryButtonRef = document.querySelector('[data-button="library"]');
-export const headerDynamicContainerRef = document.querySelector('header .js-dynamic-container');
+export const headerContainerRef = document.querySelector('header .js-dynamic-container');
+export const listFilmsRef = document.querySelector('section .movie__list');
+export const openedModal = document.querySelector('.main');
+export const modal = document.querySelector('.modal');
+export const body = document.querySelector('body');
+export const backdrop = document.querySelector('.backdrop');
