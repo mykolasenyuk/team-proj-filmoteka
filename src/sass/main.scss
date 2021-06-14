@@ -1,10 +1,12 @@
 //base
-@import './utils/variables';
+
 @import './base/common';
 @import './base/container';
 
 // utils
-
+@import './utils/visually-hidden';
+@import './utils/variables';
+@import './utils/mixins';
 // general sass
 @import './header';
 @import './hero_movies';
@@ -12,5 +14,7 @@
 @import './modal_about_us';
 @import './footer';
 // components
-// @import './components/button';
+@import './components/button';
+
+//pagination
 @import './pagination';
