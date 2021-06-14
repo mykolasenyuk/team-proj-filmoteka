@@ -9,6 +9,7 @@ const refs = {
   headerBg: document.querySelector('.header__background'),
   searchWrap: document.querySelector('.search__input-wrapper'),
   libraryBtnsContainer: document.querySelector('.button-container'),
+  libraryBg:document.querySelector('.library__background'),
   
   
   filterInput: document.querySelectorAll('.filter-input'),
