@@ -46,7 +46,9 @@
             Genre
           </span>
           <span class='data_items_modal_progr'>
-            {{genres.names}}
+           {{#each genres}}          
+             <span>{{this.name}}</span>          
+               {{/each}}
           </span>
         </li>
       </ul>
