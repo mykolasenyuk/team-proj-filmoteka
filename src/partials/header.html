@@ -1,55 +1,29 @@
-<header>
-  <div class="header__background">
-    <div class="header__container container">
-      <div class="header__wrapper">
-        <div class="logo-wrapper">
-          <a class="logo" href="./index" aria-label="logo of filmoteka">
-            <svg class="logo__icon" width="24" height="24">
-              <use href="./images/sprite.svg#film"></use>
-            </svg>
-            <span class="logo__text">Filmoteka </span>
-          </a>
-        </div>
-        <nav class="site-nav">
-          <button
-            id="home-button"
-            class="header-button home-button current"
-            type="button"
-            aria-label="main page switch"
-          >
+<header class="header header--home js-page-header">
+  <div class="container">
+    <nav class="site-nav">
+      <a href="#" class="logo js-logo">
+        <svg width="24" height="24">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
+        <span class="logo__title">Filmoteka</span></a>
+      <ul class="site-nav__list js-navigation-list">
+        <li class="site-nav__item">
+          <button class="site-nav__button site-nav__button--current" data-button="home" type="button">
             Home
           </button>
-          <button
-            id="library-button"
-            class="header-button library-button "
-            type="button"
-            aria-label="library page switch"
-          >
+        </li>
+        <li class="site-nav__item">
+          <button class="site-nav__button" data-button="library" type="button">
             My library
           </button>
-        </nav>
-      </div>
+        </li>
+      </ul>
+    </nav>
 
-      <div class="search-container">
-        <form class="search__input-wrapper">
-          <input
-            class="search__input"
-            type="text"
-            name="query"
-            autocomplete="off"
-            aria-label="Search films "
-            placeholder="Поиск фильмов"
-            contenteditable
-          />
-        </form>
-        <p class="no-results"></p>
-      </div>
-      <div class="button-container visually-hidden">
-                <button class="button watched-button" type="button">
-                    Watched
-                </button>
-                <button class="button queue-button" type="button">queue</button>
-            </div>
-    </div>
+    <div class="js-dynamic-container"></div>
+
+    <p class="search-error visually-hidden">
+      Error!
+    </p>
   </div>
 </header>
