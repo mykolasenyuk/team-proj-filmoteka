@@ -1,25 +1,20 @@
 import movieCardTmpl from '../templates/cardMovie.hbs';
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
-// console.log(moviesList)
+import Storage from './services/localStorage';
+const storage = new Storage();
+
 const apiService = new ApiService();
 const refs = {
   backdropModalImg: document.querySelector('.js-lightbox'),
-  btnModalImgClose: document.querySelector('[data-modal-close="closeBtn"]'),
+  // btnModalImgClose: document.querySelector('[data-modal-close="closeBtn"]'),
   moviesContainer: document.querySelector('.js-movies-container'),
-  /*  btnWatchedMovies: document.querySelector('.add_watched'),
-btnWillWatchMovie: document.querySelector('.add_queue') */
+  // btnWatchedMovies: document.querySelector('.add_watched'),
+  // btnWillWatchMovie: document.querySelector('.add_queue'),
 };
-// console.log(refs.backdropModalImg);
-// console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
+
 refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
 refs.moviesContainer.addEventListener('click', onOpenModalFilmCard);
-// refs.btnModalImgClose.addEventListener('click', onCloseModalByBtn);
-// console.log(refs.btnModalImgClose);
-
-// Откритие модалки
-// document.querySelector('.movies-card');
-// addEventListener('click', onOpenModalFilmCard);
 
 function addOpenLightboxClass() {
   refs.backdropModalImg.classList.add('is-open');
@@ -68,19 +63,17 @@ function onOpenModalFilmCard(e) {
   apiService.getModalMovie(movieId).then(data => renderModal(data));
 }
 
+function clearCardList() {
+  refs.backdropModalImg.innerHTML = '';
+}
 const renderModal = data => {
   const modalMarkapMovieCard = movieCardTmpl(data);
   // console.log(modalMarkapMovieCard);
   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
+  document.querySelector('.add_queue').addEventListener('click', () => {
+    storage.addQueue(data.id);
+  });
+  document.querySelector('.add_watched').addEventListener('click', () => {
+    storage.addWatched(data.id);
+  });
 };
-
-function clearCardList() {
-  refs.backdropModalImg.innerHTML = '';
-}
-
-/* document.querySelector('.add_watched').addEventListener('click', onAddWatchedMovies) ;
- function onAddWatchedMovies() {
-   const movieId = Number(e.target.dataset.action);
-localStorage.setItem(Watched, movieId)
-} 
- */
