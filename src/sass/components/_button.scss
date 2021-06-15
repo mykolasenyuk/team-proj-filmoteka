@@ -1,3 +1,11 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 200px;
+  // opacity: 1;
+}
+
 .button {
   width: 136px;
   height: 44px;
@@ -52,12 +60,6 @@
       margin-right: 19.94px;
     }
   }
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  opacity: 1;
 }
 
 .scrollToTopBtn {
