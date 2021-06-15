@@ -5,6 +5,7 @@
 }
 .button-container {
   display: flex;
+
   justify-content: center;
 }
 .header__background {
@@ -267,11 +268,11 @@
   cursor: pointer;
 }
 
-.watched-button:focus,
-.queue-button:focus {
-  background-color: #ff6b01;
-  border: none;
-}
+// .watched-button:focus,
+// .queue-button:focus {
+//   background-color: #ff6b01;
+//   border: none;
+// }
 .watched-button:hover,
 .queue-button:hover {
   background-color: #ff6b01;
@@ -279,7 +280,7 @@
 }
 .button {
   margin-left: 15px;
-
+  // background-image: linear-gradient(#bdc3c7c4, #2c3e50ad);
   align-items: center;
 
   justify-content: center;
