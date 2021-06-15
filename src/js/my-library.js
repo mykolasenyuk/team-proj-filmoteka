@@ -20,6 +20,7 @@ refs.libraryBtn.addEventListener('click', (event) => {
 
     refs.heroBlock.classList.add('visually-hidden');//скрывается блок hero
     
+    refs.paginationContainer.classList.add('disactive-pagination');
 });
 
 refs.watchedBtn.addEventListener('click', (event) => {
@@ -46,6 +47,6 @@ refs.homeBtn.addEventListener('click', (event) => {
     
     refs.heroBlock.classList.remove('visually-hidden');
 
-    // refs.paginationContainer.classList.remove('visually-hidden');
+    refs.paginationContainer.classList.remove('disactive-pagination');
 }
 )
