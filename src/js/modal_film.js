@@ -1,43 +1,46 @@
 import movieCardTmpl from '../templates/cardMovie.hbs';
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
-// console.log(moviesList)
+import Storage from './services/localStorage';
+const storage = new Storage();
+
 const apiService = new ApiService();
 const refs = {
-  backdropModalImg: document.querySelector('.backdrop'),
-  btnModalImgClose: document.querySelector('.button__close'),
- /*  btnWatchedMovies: document.querySelector('.add_watched'),
-btnWillWatchMovie: document.querySelector('.add_queue') */
+  backdropModalImg: document.querySelector('.js-lightbox'),
+  // btnModalImgClose: document.querySelector('[data-modal-close="closeBtn"]'),
+  moviesContainer: document.querySelector('.js-movies-container'),
+  // btnWatchedMovies: document.querySelector('.add_watched'),
+  // btnWillWatchMovie: document.querySelector('.add_queue'),
 };
-// console.log(refs.backdropModalImg);
-// console.log(refs.backdropModalImg.classList.value); //backdrop visually-hidden
-refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
-addEventListener('click', onBtnModalClose);
 
-// Откритие модалки
-// document.querySelector('.movies-card');
-addEventListener('click', onOpenModalFilmCard);
+refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
+refs.moviesContainer.addEventListener('click', onOpenModalFilmCard);
+
 function addOpenLightboxClass() {
   refs.backdropModalImg.classList.add('is-open');
   refs.backdropModalImg.classList.remove('is-hidden');
+
+  if (refs.backdropModalImg.classList.contains('is-open')) {
+    window.addEventListener('keydown', closeModalEscape);
+  }
 }
 
 function onBackdropModalClose(e) {
-  if (e.target.classList.value === 'backdrop') {
+  if (e.target === refs.backdropModalImg) {
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
-    console.log(e.target.classList.value);
   }
   return;
 }
 
-function onBtnModalClose(e) {
-  refs.backdropModalImg.classList.remove('is-open');
-  refs.backdropModalImg.classList.add('is-hidden');
-  // console.log(e.target);
-}
+window.addEventListener('click', onCloseModalByBtn);
 
-window.addEventListener('keydown', closeModalEscape);
+function onCloseModalByBtn(e) {
+  if (e.target.classList.contains('button__close')) {
+    refs.backdropModalImg.classList.remove('is-open');
+    refs.backdropModalImg.classList.add('is-hidden');
+  }
+}
 
 function closeModalEscape(e) {
   if (e.code === 'Escape') {
@@ -54,30 +57,23 @@ function onOpenModalFilmCard(e) {
     return;
   }
   const movieId = Number(e.target.dataset.action);
-  console.log(movieId);
-  clearCardList()
+  // console.log(movieId);
+  clearCardList();
   addOpenLightboxClass();
   apiService.getModalMovie(movieId).then(data => renderModal(data));
 }
 
-const renderModal = data => {
-  const modalMarkapMovieCard = movieCardTmpl(data);
-  console.log(modalMarkapMovieCard);
-  refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
-};
-
 function clearCardList() {
   refs.backdropModalImg.innerHTML = '';
 }
-
-
-
-
- /* document.querySelector('.add_watched').addEventListener('click', onAddWatchedMovies) ;
- function onAddWatchedMovies() {
-   const movieId = Number(e.target.dataset.action);
-localStorage.setItem(Watched, movieId)
-} 
- */
-
-
+const renderModal = data => {
+  const modalMarkapMovieCard = movieCardTmpl(data);
+  // console.log(modalMarkapMovieCard);
+  refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
+  document.querySelector('.add_queue').addEventListener('click', () => {
+    storage.addQueue(data.id);
+  });
+  document.querySelector('.add_watched').addEventListener('click', () => {
+    storage.addWatched(data.id);
+  });
+};

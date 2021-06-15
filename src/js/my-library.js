@@ -4,6 +4,7 @@ import apiService from './services/apiService';
 
 
 
+
 refs.libraryBtn.addEventListener('click', (event) => {
     
     refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут    
@@ -21,15 +22,17 @@ refs.libraryBtn.addEventListener('click', (event) => {
     refs.heroBlock.classList.add('visually-hidden');//скрывает блок hero
     
     refs.paginationContainer.classList.add('disactive-pagination'); //скрывает пагинацию кнопок
+
 });
 
-refs.watchedBtn.addEventListener('click', (event) => {
-    console.log(event.target)
+refs.watchedBtn.addEventListener('click', event => {
+  console.log(event.target);
 });
 
-refs.queueBtn.addEventListener('click', (event) => {
-    console.log(event.target)
+refs.queueBtn.addEventListener('click', event => {
+  console.log(event.target);
 });
+
 
 refs.homeBtn.addEventListener('click', (event) => {
     
@@ -50,3 +53,4 @@ refs.homeBtn.addEventListener('click', (event) => {
     refs.paginationContainer.classList.remove('disactive-pagination');
 }
 )
+
