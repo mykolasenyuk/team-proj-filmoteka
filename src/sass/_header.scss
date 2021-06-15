@@ -1,9 +1,12 @@
 // MOBILE------------------------
-header {
+.header {
   width: 100%;
   height: 230px;
 }
-
+.button-container {
+  display: flex;
+  justify-content: center;
+}
 .header__background {
   height: 100%;
   background-color: black;

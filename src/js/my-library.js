@@ -13,8 +13,8 @@ refs.libraryBtn.addEventListener('click', (event) => {
     
     refs.homeBtn.classList.remove('current');//убирается подчеркивание c кнопки home
     
-    refs.headerBg.classList.add('library__background');
-    refs.headerBg.classList.remove('header__background');    
+    refs.headerBg.classList.add('library__background');//добавляется фон library
+    refs.headerBg.classList.remove('header__background');   //скрывается фон header 
 });
 
 refs.watchedBtn.addEventListener('click', (event) => {
