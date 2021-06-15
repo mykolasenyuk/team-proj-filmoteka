@@ -60,8 +60,16 @@ function onOpenModalFilmCard(e) {
   // console.log(movieId);
   clearCardList();
   addOpenLightboxClass();
-  apiService.getModalMovie(movieId).then(data => renderModal(data));
+  apiService.getModalMovie(movieId).then(data => ({
+      ...data,
+      popularity: data.popularity.toFixed(1),
+    })).then(data => renderModal(data));
 }
+// .then(data => ({
+//       ...data,
+//       popularity: data.popularity.toFixed(1),
+//     }))
+//     .then(data => renderModal(data));
 
 function clearCardList() {
   refs.backdropModalImg.innerHTML = '';
