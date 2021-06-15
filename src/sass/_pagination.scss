@@ -60,6 +60,9 @@
   }
 }
 
+.disactive-pagination {
+  display: none;
+}
 @media screen and (max-width: 400px) {
   .pagenumbers button {
     width: 38px;

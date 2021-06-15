@@ -9,8 +9,10 @@ const refs = {
   headerBg: document.querySelector('.header__background'),
   searchWrap: document.querySelector('.search__input-wrapper'),
   libraryBtnsContainer: document.querySelector('.button-container'),
+  libraryBg:document.querySelector('.library__background'),
   
-  
+  heroBlock: document.querySelector('.hero'),
+  paginationContainer: document.querySelector('.pagination__container'),
   filterInput: document.querySelectorAll('.filter-input'),
 
   watchedBtn: document.querySelector('.watched-button'),

@@ -1,12 +1,28 @@
 import refs from './refs/refs';
 import apiService from './services/apiService';
 
-refs.libraryBtn.addEventListener('click', event => {
-  console.log(event.target);
-  refs.searchWrap.classList.add('visually-hidden');
-  refs.libraryBtnsContainer.classList.remove('visually-hidden');
-  refs.libraryBtn.classList.add('current');
-  refs.homeBtn.classList.remove('current');
+
+
+
+
+refs.libraryBtn.addEventListener('click', (event) => {
+    
+    refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут    
+
+    refs.libraryBtn.classList.add('current');//подчеркивание library
+
+    refs.libraryBtnsContainer.classList.remove('visually-hidden');// показывает кнопки
+    
+    refs.homeBtn.classList.remove('current');//убирает подчеркивание c кнопки home
+    
+    refs.headerBg.classList.add('library__background');//добавляет фон library
+
+    refs.headerBg.classList.remove('header__background');   //скрывает фон header 
+
+    refs.heroBlock.classList.add('visually-hidden');//скрывает блок hero
+    
+    refs.paginationContainer.classList.add('disactive-pagination'); //скрывает пагинацию кнопок
+
 });
 
 refs.watchedBtn.addEventListener('click', event => {
@@ -17,10 +33,24 @@ refs.queueBtn.addEventListener('click', event => {
   console.log(event.target);
 });
 
-refs.homeBtn.addEventListener('click', event => {
-  console.log(event.target);
-  refs.homeBtn.classList.add('current');
-  refs.libraryBtn.classList.remove('current');
-  refs.searchWrap.classList.remove('visually-hidden');
-  refs.libraryBtnsContainer.classList.add('visually-hidden');
-});
+
+refs.homeBtn.addEventListener('click', (event) => {
+    
+    refs.homeBtn.classList.add('current');
+
+    refs.libraryBtn.classList.remove('current');
+
+    refs.searchWrap.classList.remove('visually-hidden');
+
+    refs.libraryBtnsContainer.classList.add('visually-hidden');
+
+    refs.headerBg.classList.remove('library__background');
+
+    refs.headerBg.classList.add('header__background');
+    
+    refs.heroBlock.classList.remove('visually-hidden');
+
+    refs.paginationContainer.classList.remove('disactive-pagination');
+}
+)
+
