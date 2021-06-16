@@ -1,7 +1,7 @@
 {{#each this}}
 
 <div class="movies-card-wrapper">
-    <li class='movies-card'>
+    <div class='movies-card'>
       <p class='movies-card-vote'>
         {{vote_average}}
       </p>
@@ -15,7 +15,7 @@
         <div class="genre-release-date-container">
           <div class='description-genre-release-date'>
             {{#each genres}}
-            <p class='description-genre genre-release-date-point'>{{name}}</p>
+            <p class='genre-release-date-point'>{{name}}</p>
             {{/each}}
           </div>
           <div>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-    </li>
+    </div>
 </div>
 
 {{/each}}

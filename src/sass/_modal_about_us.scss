@@ -8,14 +8,20 @@
   transition-property: all;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   @media screen and (max-width: 1200px) {
     overflow: scroll;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     overflow: scroll;
   }
 }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .modal {
   position: absolute;
   top: 50%;
@@ -33,7 +39,7 @@
     max-width: 800px;
     margin-top: 100%;
   }
-  @media screen and (max-width: 768px, ) {
+  @media screen and (max-width: 768px,) {
     max-width: 460px;
     margin-top: 230%;
   }
@@ -83,14 +89,14 @@
     color: var(--primary-text-color);
     padding-bottom: 20px;
     margin-top: 15px;
-   
-  @media screen and (max-width: 1200px){
-     margin-top: 0;
-   } 
 
-  @media screen and (max-width: 768px){
-    padding-top: 10px;
-  }
+    @media screen and (max-width: 1200px) {
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-top: 10px;
+    }
   }
 
   & label {
@@ -229,8 +235,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (max-width: 768px){
-    
+  @media screen and (max-width: 768px) {
   }
 }
 .sectin-names-shadow {
@@ -241,14 +246,14 @@
     0px 2px 1px rgb(0 0 0 / 20%);
   border-radius: 0px 0px 4px 4px;
   margin-right: 40px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: block;
     margin: 0;
     width: 160px;
     margin-bottom: 20px;
     margin-top: 25px;
   }
-  @media screen and (max-width: 1200px){
+  @media screen and (max-width: 1200px) {
     margin-right: 4px;
     margin-top: 25px;
   }
@@ -259,10 +264,10 @@
 .n_margin {
   margin: 0;
   padding: 0;
-  @media screen and (max-width: 1200px){
+  @media screen and (max-width: 1200px) {
     margin-top: 25px;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-top: 40px;
   }
 }
@@ -280,19 +285,18 @@
   color: var(--title-text-color);
   font-weight: normal;
   padding-top: 10px;
-   
 }
 .name-section-one {
   display: flex;
   margin-bottom: 50px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: block;
   }
 }
 .name-section_two {
   display: flex;
   padding-bottom: 60px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: block;
   }
   @media screen and (max-width: 1200px) {
