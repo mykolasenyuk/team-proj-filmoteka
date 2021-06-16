@@ -31,10 +31,15 @@ p {
   margin: 0;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .backdrop {
   position: fixed;
-  // left: 0;
-  // top: 0;
+  left: 0;
+  top: 0;
   opacity: 1;
   pointer-events: initial;
   width: 100%;
@@ -42,22 +47,33 @@ p {
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 250ms linear;
   z-index: 1;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  overflow-y: hidden;
   // padding-left: 28px;
   // padding-right: 30px;
 
   &.is-hidden {
-    transform: translate(-50%, -50%) scale(0);
+    transform: scale(0);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 }
+// Coma //////
+.genrePoint:not(:last-child)::after {
+  content: ', ';
+  color: #000000;
+}
 
 .container_modal_progr {
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
+  // top: 80%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 280px;
 
   padding: 48px 20px 40px;
@@ -70,7 +86,7 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
-    margin-top: 231px;
+    margin-top: 215px;
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -247,12 +263,14 @@ p {
 }
 .modal__img {
   width: 240px;
+  height: 356.57px;
   @media screen and (min-width: 768px) {
     width: 264px;
-   
+    height: 373.55px;
   }
   @media screen and (min-width: 1024px) {
     width: 396px;
+    height: 477.8px;
   }
 }
 ul {

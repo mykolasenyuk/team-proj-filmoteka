@@ -12,15 +12,17 @@
         <p class='description-title'>
           {{title}}
         </p>
-        <div class='description-genre-release-date'>
-          <p class='description-genre'>
+        <div class="genre-release-date-container">
+          <div class='description-genre-release-date'>
             {{#each genres}}
-            {{name}}
+            <p class='description-genre genre-release-date-point'>{{name}}</p>
             {{/each}}
-          </p>
-          <p class='description-release-date'>
-            {{release_date}}
-          </p>
+          </div>
+          <div>
+            <span class='description-release-date'>
+              {{release_date}}
+            </span>
+          </div>
         </div>
       </div>
     </li>
