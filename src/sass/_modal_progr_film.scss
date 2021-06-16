@@ -50,8 +50,8 @@ p {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   overflow-y: hidden;
-  // padding-left: 28px;
-  // padding-right: 30px;
+  padding-left: 28px;
+  padding-right: 30px;
 
   &.is-hidden {
     transform: scale(0);
@@ -69,16 +69,14 @@ p {
 
 .container_modal_progr {
   position: relative;
-  margin: auto;
-  // top: 80%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 280px;
 
   padding: 48px 20px 40px;
   background-color: #ffffff;
-  margin-top: 20px;
   @media screen and (min-width: 768px) {
     max-width: 618px;
     padding-left: 28px;
@@ -86,7 +84,6 @@ p {
     padding-top: 42px;
     padding-bottom: 40px;
     display: flex;
-    margin-top: 215px;
   }
   @media screen and (min-width: 1024px) {
     max-width: 882px;
@@ -94,7 +91,6 @@ p {
     padding-right: 30px;
     padding-top: 50px;
     padding-bottom: 40px;
-    margin-top: 100px;
   }
 }
 .button__close {
