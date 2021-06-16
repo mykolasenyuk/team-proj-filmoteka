@@ -31,6 +31,11 @@ p {
   margin: 0;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .backdrop {
   position: fixed;
   left: 0;

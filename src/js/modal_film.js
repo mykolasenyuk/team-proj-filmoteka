@@ -27,6 +27,7 @@ function addOpenLightboxClass() {
 
 function onBackdropModalClose(e) {
   if (e.target === refs.backdropModalImg) {
+    onStopScroll()
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
   }
@@ -37,6 +38,7 @@ window.addEventListener('click', onCloseModalByBtn);
 
 function onCloseModalByBtn(e) {
   if (e.target.classList.contains('button__close')) {
+    onStopScroll()
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
   }
@@ -44,6 +46,7 @@ function onCloseModalByBtn(e) {
 
 function closeModalEscape(e) {
   if (e.code === 'Escape') {
+    onStopScroll()
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
   }
@@ -52,6 +55,7 @@ function closeModalEscape(e) {
 
 function onOpenModalFilmCard(e) {
   e.preventDefault();
+  onAddScroll()
 
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -65,11 +69,15 @@ function onOpenModalFilmCard(e) {
       popularity: data.popularity.toFixed(1),
     })).then(data => renderModal(data));
 }
-// .then(data => ({
-//       ...data,
-//       popularity: data.popularity.toFixed(1),
-//     }))
-//     .then(data => renderModal(data));
+
+// stop scroll
+function onStopScroll() {
+  document.body.classList.remove('stop-scrolling');
+}
+
+function onAddScroll() {
+  document.body.classList.add('stop-scrolling');
+}
 
 function clearCardList() {
   refs.backdropModalImg.innerHTML = '';

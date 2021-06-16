@@ -33,7 +33,24 @@
   color: #000000;
 }
 
-.description-genre-release-date {
+// .genre-release-date-container {
+//   font-family: Roboto;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 1.33;
+//   display: flex;
+
+//   color: #ff6b08;
+// }
+
+.genre-release-date-point:not(:last-child)::after {
+  content: ', ';
+  color: #ff6b08;
+}
+
+.description-genre-release-date,
+.genre-release-date-container {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
