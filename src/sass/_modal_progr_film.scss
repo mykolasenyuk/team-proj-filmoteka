@@ -196,22 +196,29 @@ p {
   margin-bottom: 21px;
 }
 .add_watched {
-  display: block;
+  
   width: 112.58px;
   height: 44px;
-  background: #ff6b01;
+  background:  #ffffff;
   border-radius: 5px;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #ffffff;
-  border: none;
+
+  border: 1px solid #000000;
+  color: #000000;
+  &.watched {
+  background: #ff6b01;
+ }
   @media screen and (min-width: 768px) {
     width: 125px;
     height: 44px;
     font-size: 12px;
     line-height: 16px;
-    margin-top: 0px;
+    color: #000000;
+    &.queued {
+       background: #ff6b01;
+      }
   }
   @media screen and (min-width: 1024px) {
     margin-right: 15px;

@@ -67,13 +67,17 @@ function clearCardList() {
   refs.backdropModalImg.innerHTML = '';
 }
 const renderModal = data => {
+  data = storage.setMovieFlags(data)
   const modalMarkapMovieCard = movieCardTmpl(data);
   // console.log(modalMarkapMovieCard);
   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
-  document.querySelector('.add_queue').addEventListener('click', () => {
-    storage.addQueue(data.id);
+  document.querySelector('.add_queue').addEventListener('click', event => {
+
+  storage.addQueue(data);
+   event.target.classList.toggle('queued')
   });
-  document.querySelector('.add_watched').addEventListener('click', () => {
-    storage.addWatched(data.id);
+  document.querySelector('.add_watched').addEventListener('click', event => {
+    storage.addWatched(data);
+ event.target.classList.toggle('watched')
   });
 };
