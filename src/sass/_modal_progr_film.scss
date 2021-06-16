@@ -207,6 +207,8 @@ p {
   color: #000000;
   &.watched {
     background: #ff6b01;
+    color: #ffffff;
+    border: none;
   }
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -231,6 +233,8 @@ p {
   color: #000000;
   &.queued {
     background: #ff6b01;
+    color: #ffffff;
+    border: none;
   }
   @media screen and (min-width: 768px) {
     width: 125px;
