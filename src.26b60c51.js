@@ -93,4 +93,4 @@ const e={openModal:document.querySelector('[data-modal-open="openBtn"]'),backdro
 },{"./refs/refs":"fi17","./services/apiService":"o1Xb"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/services/apiService"),require("./js/pagination"),require("./js/hero_movies"),require("./js/modal_film"),require("./js/onSearch"),require("./js/about_us"),require("./js/my-library");
 },{"./sass/main.scss":"clu1","./js/services/apiService":"o1Xb","./js/pagination":"o8lo","./js/hero_movies":"DFAo","./js/modal_film":"ty4h","./js/onSearch":"MoSP","./js/about_us":"ZkT5","./js/my-library":"L1LD"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-proj-filmoteka/src.1b946889.js.map
+//# sourceMappingURL=/team-proj-filmoteka/src.26b60c51.js.map
