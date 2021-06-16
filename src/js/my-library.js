@@ -1,13 +1,36 @@
 import refs from './refs/refs';
 import apiService from './services/apiService';
+import moviesList from "../templates/hero_movies.hbs";
+import {stopSpin} from "./spinner/spinner";
+import localStorage from './services/localStorage'
 
+let storage = new localStorage()
+ 
+const moviesContainer = document.querySelector('.js-movies-container');
+ 
+function clearMarkup() {
+  moviesContainer.innerHTML = '';
+}
+ 
+function renderFilmsCard(data) {
+  moviesContainer.insertAdjacentHTML('beforeend', moviesList(data));
+  const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
+  moviesCardVoteEl.forEach(classList => {
+    classList.classList.add("is-hidden");
+  });
+
+  stopSpin();
+
+}
 
 
 
 
 refs.libraryBtn.addEventListener('click', (event) => {
     
-    refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут    
+    clearMarkup()
+  renderFilmsCard(storage.getWatched())
+  refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут
 
     refs.libraryBtn.classList.add('current');//подчеркивание library
 
@@ -17,10 +40,8 @@ refs.libraryBtn.addEventListener('click', (event) => {
     
     refs.headerBg.classList.add('library__background');//добавляет фон library
 
-    refs.headerBg.classList.remove('header__background');   //скрывает фон header 
+    refs.headerBg.classList.remove('header__background');   //скрывает фон header
 
-    refs.heroBlock.classList.add('visually-hidden');//скрывает блок hero
-    
     refs.paginationContainer.classList.add('disactive-pagination'); //скрывает пагинацию кнопок
 
 });

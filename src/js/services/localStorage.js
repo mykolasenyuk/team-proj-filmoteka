@@ -1,7 +1,7 @@
 export default class Storage {
   constructor() {
-+    localStorage.setItem('queue', JSON.stringify({}));
-+    localStorage.setItem('watched', JSON.stringify({}));
+    localStorage.setItem('queue', JSON.stringify({}));
+    localStorage.setItem('watched', JSON.stringify({}));
   }
 
   getQueue() {
@@ -10,7 +10,7 @@ export default class Storage {
   getWatched() {
     return Object.values(this.#getList('watched'));
   }
-  addQueue(id) {
+   addQueue(movie) {
     let list = this.#getList('queue');
     if(!list[movie.id]) {
      list[movie.id] = movie

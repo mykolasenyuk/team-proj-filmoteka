@@ -271,7 +271,9 @@
 .watched-button:focus,
 .queue-button:focus,
 .watched-button:hover,
-.queue-button:hover {
+.queue-button:hover,
+.watched-button.active,
+.queue-button.active{
   background-color: #ff6b01;
   border: none;
 }

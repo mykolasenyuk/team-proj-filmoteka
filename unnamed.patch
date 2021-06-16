@@ -1,0 +1,377 @@
+Index: src/sass/_header.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/sass/_header.scss b/src/sass/_header.scss
+--- a/src/sass/_header.scss	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/sass/_header.scss	(date 1623827882917)
+@@ -268,16 +268,17 @@
+   cursor: pointer;
+ }
+ 
++
+ .watched-button:focus,
+-.queue-button:focus {
+-  background-color: #ff6b01;
+-  border: none;
+-}
++.queue-button:focus,
+ .watched-button:hover,
+-.queue-button:hover {
++.queue-button:hover,
++.watched-button.active,
++.queue-button.active{
+   background-color: #ff6b01;
+   border: none;
+ }
++
+ .button {
+   margin-left: 15px;
+   // background-image: linear-gradient(#bdc3c7c4, #2c3e50ad);
+Index: src/partials/header.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/partials/header.html b/src/partials/header.html
+--- a/src/partials/header.html	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/partials/header.html	(date 1623827851177)
+@@ -45,7 +45,7 @@
+         <p class="no-results"></p>
+       </div>
+       <div class="button-container visually-hidden">
+-                <button class="button watched-button" type="button">
++                <button class="button watched-button active" type="button">
+                     Watched
+                 </button>
+                 <button class="button queue-button" type="button">queue</button>
+Index: src/templates/hero_movies.hbs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/templates/hero_movies.hbs b/src/templates/hero_movies.hbs
+--- a/src/templates/hero_movies.hbs	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/templates/hero_movies.hbs	(date 1623828138769)
+@@ -1,3 +1,5 @@
++
++{{#if this}}
+ {{#each this}}
+ 
+ <div class="movies-card-wrapper">
+@@ -7,7 +9,7 @@
+       </p>
+       <img data-action='{{id}}' class='movies-card-img' src="https://image.tmdb.org/t/p/w500{{poster_path}}"
+         alt="{{title}}"  onError="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" />
+-    
++
+       <div class='description'>
+         <p class='description-title'>
+           {{title}}
+@@ -26,4 +28,7 @@
+     </li>
+ </div>
+ 
+-{{/each}}
+\ No newline at end of file
++{{/each}}
++{{else}}
++ No movies here!
++ {{/if}}
+Index: src/sass/_modal_progr_film.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/sass/_modal_progr_film.scss b/src/sass/_modal_progr_film.scss
+--- a/src/sass/_modal_progr_film.scss	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/sass/_modal_progr_film.scss	(date 1623826610367)
+@@ -196,16 +196,18 @@
+   margin-bottom: 21px;
+ }
+ .add_watched {
+-  display: block;
++  border: 1px solid #000000;
+   width: 112.58px;
+   height: 44px;
+-  background: #ff6b01;
++  background: #ffffff;
+   border-radius: 5px;
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 16px;
+-  color: #ffffff;
+-  border: none;
++  color: #000000;
++  &.watched {
++    background: #ff6b01;
++  }
+   @media screen and (min-width: 768px) {
+     width: 125px;
+     height: 44px;
+@@ -227,6 +229,9 @@
+   font-size: 12px;
+   line-height: 16px;
+   color: #000000;
++  &.queued {
++      background: #ff6b01;
++  }
+   @media screen and (min-width: 768px) {
+     width: 125px;
+     height: 44px;
+@@ -249,7 +254,7 @@
+   width: 240px;
+   @media screen and (min-width: 768px) {
+     width: 264px;
+-   
++
+   }
+   @media screen and (min-width: 1024px) {
+     width: 396px;
+Index: src/templates/cardMovie.hbs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/templates/cardMovie.hbs b/src/templates/cardMovie.hbs
+--- a/src/templates/cardMovie.hbs	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/templates/cardMovie.hbs	(date 1623826498404)
+@@ -46,8 +46,8 @@
+             Genre
+           </span>
+           <span class='data_items_modal_progr'>
+-           {{#each genres}}          
+-             <span>{{this.name}}</span>          
++           {{#each genres}}
++             <span>{{this.name}}</span>
+                {{/each}}
+           </span>
+         </li>
+@@ -60,10 +60,10 @@
+       {{overview}}
+     </p>
+     <div class='buttons_modal_progr'>
+-      <button type='button'   class='add_watched'>
++      <button type='button'   class='add_watched {{#if watched}} watched {{/if}}'>
+         ADD TO WATCHED
+       </button>
+-      <button type='button' class='add_queue'>
++      <button type='button' class='add_queue {{#if queued}} queued {{/if}}'>
+         ADD TO QUEUE
+       </button>
+     </div>
+Index: src/js/my-library.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/js/my-library.js b/src/js/my-library.js
+--- a/src/js/my-library.js	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/js/my-library.js	(date 1623828208670)
+@@ -1,26 +1,44 @@
+ import refs from './refs/refs';
+ import apiService from './services/apiService';
++import moviesList from "../templates/hero_movies.hbs";
++import {stopSpin} from "./spinner/spinner";
++import localStorage from './services/localStorage'
++
++let storage = new localStorage()
+ 
++const moviesContainer = document.querySelector('.js-movies-container');
+ 
++function clearMarkup() {
++  moviesContainer.innerHTML = '';
++}
+ 
++function renderFilmsCard(data) {
++  moviesContainer.insertAdjacentHTML('beforeend', moviesList(data));
++  const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
++  moviesCardVoteEl.forEach(classList => {
++    classList.classList.add("is-hidden");
++  });
++
++  stopSpin();
++
++}
+ 
+ 
+ refs.libraryBtn.addEventListener('click', (event) => {
+-    
+-    refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут    
++  clearMarkup()
++  renderFilmsCard(storage.getWatched())
++  refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут
+ 
+     refs.libraryBtn.classList.add('current');//подчеркивание library
+ 
+     refs.libraryBtnsContainer.classList.remove('visually-hidden');// показывает кнопки
+-    
++
+     refs.homeBtn.classList.remove('current');//убирает подчеркивание c кнопки home
+-    
++
+     refs.headerBg.classList.add('library__background');//добавляет фон library
+ 
+-    refs.headerBg.classList.remove('header__background');   //скрывает фон header 
++    refs.headerBg.classList.remove('header__background');   //скрывает фон header
+ 
+-    refs.heroBlock.classList.add('visually-hidden');//скрывает блок hero
+-    
+     refs.paginationContainer.classList.add('disactive-pagination'); //скрывает пагинацию кнопок
+ 
+ });
+@@ -35,7 +53,7 @@
+ 
+ 
+ refs.homeBtn.addEventListener('click', (event) => {
+-    
++
+     refs.homeBtn.classList.add('current');
+ 
+     refs.libraryBtn.classList.remove('current');
+@@ -47,10 +65,9 @@
+     refs.headerBg.classList.remove('library__background');
+ 
+     refs.headerBg.classList.add('header__background');
+-    
++
+     refs.heroBlock.classList.remove('visually-hidden');
+ 
+     refs.paginationContainer.classList.remove('disactive-pagination');
+-}
+-)
++})
+ 
+Index: src/js/modal_film.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/js/modal_film.js b/src/js/modal_film.js
+--- a/src/js/modal_film.js	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/js/modal_film.js	(date 1623827185230)
+@@ -67,13 +67,19 @@
+   refs.backdropModalImg.innerHTML = '';
+ }
+ const renderModal = data => {
++  data = storage.setMovieFlags(data)
++
+   const modalMarkapMovieCard = movieCardTmpl(data);
+   // console.log(modalMarkapMovieCard);
+   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
+-  document.querySelector('.add_queue').addEventListener('click', () => {
+-    storage.addQueue(data.id);
++
++  document.querySelector('.add_queue').addEventListener('click', event => {
++    storage.addQueue(data);
++    event.target.classList.toggle('queued')
+   });
++
+   document.querySelector('.add_watched').addEventListener('click', () => {
+-    storage.addWatched(data.id);
++    storage.addWatched(data);
++    event.target.classList.toggle('watched')
+   });
+ };
+Index: src/js/services/localStorage.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/js/services/localStorage.js b/src/js/services/localStorage.js
+--- a/src/js/services/localStorage.js	(revision e13a5acc4c6aa69e3ca20d9434cf3a2ef75b8d2a)
++++ b/src/js/services/localStorage.js	(date 1623827716484)
+@@ -1,52 +1,70 @@
+ export default class Storage {
+   constructor() {
+-    localStorage.setItem('queue', JSON.stringify([]));
+-    localStorage.setItem('watched', JSON.stringify([]));
++    localStorage.setItem('queue', JSON.stringify({}));
++    localStorage.setItem('watched', JSON.stringify({}));
+   }
+ 
+   getQueue() {
+-    return this.#getList('queue');
++    return  Object.values(this.#getList('queue'))
+   }
+   getWatched() {
+-    return this.#getList('watched');
++    return Object.values(this.#getList('watched'))
+   }
+-  addQueue(id) {
++  addQueue(movie) {
+     let list = this.#getList('queue');
+-    if (!this.inList(id, list)) {
+-      list.push(id);
+-    }
++
++   if(!list[movie.id]) {
++     list[movie.id] = movie
++   } else {
++     delete list[movie.id]
++   }
++
+     this.#setList('queue', list);
+   }
+-  addWatched(id) {
++  addWatched(movie) {
+     let list = this.#getList('watched');
+-    if (!this.inList(id, list)) {
+-      list.push(id);
++
++    if(!list[movie.id]) {
++      list[movie.id] = movie
++    } else {
++      delete list[movie.id]
+     }
++
+     this.#setList('watched', list);
+   }
+   removeQueue(id) {
+     let list = this.#getList('queue');
+-    let index = list.indexOf(id);
+-    if (this.inList(id, list)) {
+-      list.splice(index, 1);
+-    }
++    delete list[id]
+     this.#setList('queue', list);
+   }
+   removeWatched(id) {
+     let list = this.#getList('watched');
+-    let index = list.indexOf(id);
+-    if (index !== -1) {
+-      list.splice(index, 1);
+-    }
++    delete list[id]
+     this.#setList('watched', list);
+   }
+-  inList(id, list) {
+-    return list.indexOf(id) !== -1;
+-  }
++
+   #getList(name) {
+     return JSON.parse(localStorage.getItem(name));
+   }
+   #setList(name, list) {
+     localStorage.setItem(name, JSON.stringify(list));
+   }
++
++  #inQueue(id){
++    return this.#getList('queue')[id]
++  }
++  #inWatched(id) {
++    return this.#getList('watched')[id]
++  }
++
++  setMovieFlags(movie) {
++    if(this.#inWatched(movie.id)) {
++      movie.watched = true
++    }
++
++    if(this.#inQueue(movie.id)) {
++      movie.queued = true
++    }
++    return movie
++  }
+ }
