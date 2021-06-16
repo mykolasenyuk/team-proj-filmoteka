@@ -1,8 +1,8 @@
 export default class Storage {
-  constructor() {
-    localStorage.setItem('queue', JSON.stringify({}));
-    localStorage.setItem('watched', JSON.stringify({}));
-  }
+  // constructor() {
+  //   localStorage.setItem('queue', JSON.stringify({}));
+  //   localStorage.setItem('watched', JSON.stringify({}));
+  // }
 
   getQueue() {
     return Object.values(this.#getList('queue'));

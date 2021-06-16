@@ -26,10 +26,10 @@ function renderFilmsCard(data) {
 
 
 
-refs.libraryBtn.addEventListener('click', (event) => {
+refs.libraryBtn.addEventListener('click', () => {
     
-    clearMarkup()
-  renderFilmsCard(storage.getWatched())// Делает карточки Watched
+  clearMarkup()
+  watchedFilmsRender()
   refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут
 
     refs.libraryBtn.classList.add('current');//подчеркивание library
@@ -46,15 +46,25 @@ refs.libraryBtn.addEventListener('click', (event) => {
 
 });
 
-refs.watchedBtn.addEventListener('click', event => {
-  console.log(event.target);
-});
+refs.watchedBtn.addEventListener('click', watchedFilmsRender);
+refs.queueBtn.addEventListener('click', queueFilmsRender);
 
-refs.queueBtn.addEventListener('click', event => {
-  console.log(event.target);
-   clearMarkup()
-  renderFilmsCard(storage.getWatched())
-});
+function watchedFilmsRender() {
+  clearMarkup()
+  renderFilmsCard(storage.getWatched())// Делает карточки Watched
+  refs.watchedBtn.classList.add('active')
+  refs.queueBtn.classList.remove('active')
+
+};
+
+function queueFilmsRender() {
+  clearMarkup()
+  renderFilmsCard(storage.getQueue())// Делает карточки Queue
+  refs.queueBtn.classList.add('active')
+  refs.watchedBtn.classList.remove('active')
+
+}
+
 
 
 refs.homeBtn.addEventListener('click', (event) => {
