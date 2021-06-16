@@ -208,16 +208,20 @@ p {
   margin-bottom: 21px;
 }
 .add_watched {
-  display: block;
+  border: 1px solid #000000;
   width: 112.58px;
   height: 44px;
-  background: #ff6b01;
+  background: #ffffff;
   border-radius: 5px;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #ffffff;
-  border: none;
+  color: #000000;
+  &.watched {
+    background: #ff6b01;
+    color: #ffffff;
+    border: none;
+  }
   @media screen and (min-width: 768px) {
     width: 125px;
     height: 44px;
@@ -239,6 +243,11 @@ p {
   font-size: 12px;
   line-height: 16px;
   color: #000000;
+  &.queued {
+    background: #ff6b01;
+    color: #ffffff;
+    border: none;
+  }
   @media screen and (min-width: 768px) {
     width: 125px;
     height: 44px;
@@ -262,7 +271,8 @@ p {
   height: 356.57px;
   @media screen and (min-width: 768px) {
     width: 264px;
-    height: 373.55px;
+    height: 374px;
+
   }
   @media screen and (min-width: 1024px) {
     width: 396px;

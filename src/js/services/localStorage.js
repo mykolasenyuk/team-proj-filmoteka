@@ -1,52 +1,66 @@
 export default class Storage {
-  constructor() {
-    localStorage.setItem('queue', JSON.stringify([]));
-    localStorage.setItem('watched', JSON.stringify([]));
-  }
+  // constructor() {
+  //   localStorage.setItem('queue', JSON.stringify({}));
+  //   localStorage.setItem('watched', JSON.stringify({}));
+  // }
 
   getQueue() {
-    return this.#getList('queue');
+    return Object.values(this.#getList('queue'));
   }
   getWatched() {
-    return this.#getList('watched');
+    return Object.values(this.#getList('watched'));
   }
-  addQueue(id) {
+   addQueue(movie) {
     let list = this.#getList('queue');
-    if (!this.inList(id, list)) {
-      list.push(id);
-    }
-    this.#setList('queue', list);
+    if(!list[movie.id]) {
+     list[movie.id] = movie
+   } else {
+     delete list[movie.id]
+   }
+
+     this.#setList('queue', list);
   }
-  addWatched(id) {
+  addWatched(movie) {
     let list = this.#getList('watched');
-    if (!this.inList(id, list)) {
-      list.push(id);
-    }
+    if(!list[movie.id]) {
+      list[movie.id] = movie
+    } else {
+      delete list[movie.id]
+     }
     this.#setList('watched', list);
   }
   removeQueue(id) {
     let list = this.#getList('queue');
-    let index = list.indexOf(id);
-    if (this.inList(id, list)) {
-      list.splice(index, 1);
-    }
-    this.#setList('queue', list);
+    delete list[id]
+     this.#setList('queue', list);
   }
   removeWatched(id) {
     let list = this.#getList('watched');
-    let index = list.indexOf(id);
-    if (index !== -1) {
-      list.splice(index, 1);
-    }
-    this.#setList('watched', list);
+    delete list[id]
+     this.#setList('watched', list);
   }
-  inList(id, list) {
-    return list.indexOf(id) !== -1;
-  }
+  
   #getList(name) {
-    return JSON.parse(localStorage.getItem(name));
+     return JSON.parse(localStorage.getItem(name));
+   }
+   #setList(name, list) {
+     localStorage.setItem(name, JSON.stringify(list));
   }
-  #setList(name, list) {
-    localStorage.setItem(name, JSON.stringify(list));
+  #inQueue(id){
+    return this.#getList('queue')[id]
+  }
+  #inWatched(id) {
+    return this.#getList('watched')[id]
+  }
+
+  setMovieFlags(movie) {
+    if(this.#inWatched(movie.id)) {
+      movie.watched = true
+    }
+
+    if(this.#inQueue(movie.id)) {
+      movie.queued = true
+    }
+    return movie
   }
 }
