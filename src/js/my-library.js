@@ -29,7 +29,7 @@ function renderFilmsCard(data) {
 refs.libraryBtn.addEventListener('click', (event) => {
     
     clearMarkup()
-  renderFilmsCard(storage.getWatched())
+  renderFilmsCard(storage.getWatched())// Делает карточки Watched
   refs.searchWrap.classList.add('visually-hidden');//cкрывает поиск инпут
 
     refs.libraryBtn.classList.add('current');//подчеркивание library
@@ -52,6 +52,8 @@ refs.watchedBtn.addEventListener('click', event => {
 
 refs.queueBtn.addEventListener('click', event => {
   console.log(event.target);
+   clearMarkup()
+  renderFilmsCard(storage.getWatched())
 });
 
 
