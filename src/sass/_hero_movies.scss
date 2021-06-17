@@ -142,56 +142,112 @@
   border-radius: 5px;
 }
 
-.arrow-hover {
-  cursor: pointer;
-  position: relative;
+// .arrow-hover {
+//   cursor: pointer;
+//   position: relative;
+//   width: 263.976px;
+//   // height: 450px;
+// }
+
+// .arrow-hover .btn__pagination__next {
+//   cursor: pointer;
+//   border: none;
+//   position: relative;
+//   top: 50%;
+//   left: 36%;
+//   width: 100px;
+//   height: 10px;
+//   background-color: #ff6b08;
+//   box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+//   display: block;
+// }
+
+// .arrow-hover .btn__pagination__next::after {
+//   content: '';
+//   position: absolute;
+//   width: 40px;
+//   height: 10px;
+//   top: -11px;
+//   right: -8px;
+//   background-color: #ff6b08;
+//   transform: rotate(45deg);
+// }
+// .arrow-hover .btn__pagination__next::before {
+//   content: '';
+//   position: absolute;
+//   width: 40px;
+//   height: 10px;
+//   top: 11px;
+//   right: -8px;
+//   background-color: #ff6b08;
+//   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+//   transform: rotate(-45deg);
+// }
+// .arrow-hover:hover {
+//   animation: arrow-hover 1s linear infinite;
+// }
+// @keyframes arrow-hover {
+//   0% {
+//     left: 0;
+//   }
+//   50% {
+//     left: 10px;
+//   }
+//   100% {
+//     left: 0;
+//   }
+// }
+.arrow-slider {
+  display: flex;
   width: 263.976px;
-  height: 450px;
+  justify-content: center;
+  align-items: center;
+}
+.arrow-slider .btn__pagination__next {
+  width: 200px;
+  height: auto;
+  margin: 0 2rem;
+  cursor: pointer;
+  overflow: visible;
+}
+.arrow-slider .btn__pagination__next polygon,
+.arrow-slider .btn__pagination__next path {
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: #545454;
+}
+.arrow-slider .btn__pagination__next:hover polygon,
+.arrow-slider .btn__pagination__next:hover path {
+  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: #ff6b08;
+}
+.arrow-slider .btn__pagination__next:hover .arrow-slider-pl {
+  animation: arrow-slider-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+.arrow-slider .btn__pagination__next:hover .arrow-slider-pl-fixed {
+  animation: arrow-slider-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
 }
 
-.arrow-hover .btn__pagination__next {
-  position: relative;
-  top: 50%;
-  left: 36%;
-  width: 100px;
-  height: 10px;
-  background-color: #337ab7;
-  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
-  display: block;
-}
-
-.arrow-hover .btn__pagination__next::after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 10px;
-  top: -11px;
-  right: -8px;
-  background-color: #337ab7;
-  transform: rotate(45deg);
-}
-.arrow-hover .btn__pagination__next::before {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 10px;
-  top: 11px;
-  right: -8px;
-  background-color: #337ab7;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  transform: rotate(-45deg);
-}
-.arrow-hover:hover {
-  animation: arrow-hover 1s linear infinite;
-}
-@keyframes arrow-hover {
+@keyframes arrow-slider-anim {
   0% {
-    left: 0;
+    opacity: 1;
+    transform: translateX(0);
   }
-  50% {
-    left: 10px;
+  5% {
+    transform: translateX(-0.1rem);
   }
   100% {
-    left: 0;
+    transform: translateX(1rem);
+    opacity: 0;
+  }
+}
+@keyframes arrow-slider-fixed-anim {
+  5% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
   }
 }

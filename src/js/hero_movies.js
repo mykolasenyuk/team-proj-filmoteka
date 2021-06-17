@@ -34,10 +34,8 @@ function setLocalStorage() {
   const getLocalStorageWatched = localStorage.getItem('watched');
   const getLocalStorageQueue = localStorage.getItem('queue');
   if (getLocalStorageWatched && getLocalStorageQueue !== null) {
-    console.log('Не пустий');
     return;
   } else {
-    console.log('Пустий');
     localStorage.setItem('watched', JSON.stringify({}));
     localStorage.setItem('queue', JSON.stringify({}));
   }
@@ -98,10 +96,15 @@ function trendingFilmsPagination() {
     renderPagination(data.total_pages, data.results, moviesByPage);
   });
 }
-// пока не работает 
-// const nextBtnPagin = document.querySelector('.btn__pagination__next')
-// nextBtnPagin.addEventListener('click', nextPagePagination)
-// function nextPagePagination() {
-//   renderPagination.onArrowRightClick()
-// }
-// console.log(apiService.getTrendingMovies());
+
+// Создает функцию для пагинации стрелки (nextPage)
+window.addEventListener('click', nextPagePagination);
+function nextPagePagination(e) {
+  if (e.target.classList.contains('btn__pagination__next')) {
+    document.querySelector('.arrow_right').click();
+    onStopScroll();
+  }
+};
+function onStopScroll() {
+  document.body.classList.remove('stop-scrolling');
+};
