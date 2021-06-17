@@ -3,6 +3,8 @@ import ApiService from './services/apiService';
 import { renderPagination } from './pagination';
 import { startSpin, stopSpin } from './spinner/spinner';
 import '../sass/main.scss';
+import Storage from './services/localStorage';
+const storage = new Storage();
 
 const apiService = new ApiService();
 
@@ -10,6 +12,7 @@ const moviesContainer = document.querySelector('.js-movies-container');
 
 const logo = document.querySelector('.logo');
 const homeBtn = document.querySelector('.home-button');
+setLocalStorage();
 // console.log(apiService.trendingFilms());
 renderPage();
 trendingFilmsPagination();
@@ -24,6 +27,20 @@ function onLogo(evt) {
   renderPage();
   trendingFilmsPagination();
   // stopSpin();
+}
+
+// local starage
+function setLocalStorage() {
+  const getLocalStorageWatched = localStorage.getItem('watched');
+  const getLocalStorageQueue = localStorage.getItem('queue');
+  if (getLocalStorageWatched && getLocalStorageQueue !== null) {
+    console.log('Не пустий');
+    return;
+  } else {
+    console.log('Пустий');
+    localStorage.setItem('watched', JSON.stringify({}));
+    localStorage.setItem('queue', JSON.stringify({}));
+  }
 }
 
 function trendingFilms() {

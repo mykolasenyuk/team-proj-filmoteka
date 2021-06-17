@@ -71,25 +71,23 @@ function queueFilmsRender() {
   refs.queueBtn.classList.add('active');
   refs.watchedBtn.classList.remove('active');
 }
+refs.homeBtn.addEventListener('click', onHomeAndLogo);
+refs.logo.addEventListener('click', onHomeAndLogo);
 
-refs.homeBtn.addEventListener('click', onLogoAndHome);
-refs.logo.addEventListener('click', onLogoAndHome);
-function onLogoAndHome() {
-  {
-    refs.homeBtn.classList.add('current');
+function onHomeAndLogo() {
+  refs.homeBtn.classList.add('current');
 
-    refs.libraryBtn.classList.remove('current');
+  refs.libraryBtn.classList.remove('current');
 
-    refs.searchWrap.classList.remove('visually-hidden');
+  refs.searchWrap.classList.remove('visually-hidden');
 
-    refs.libraryBtnsContainer.classList.add('visually-hidden');
+  refs.libraryBtnsContainer.classList.add('visually-hidden');
 
-    refs.headerBg.classList.remove('library__background');
+  refs.headerBg.classList.remove('library__background');
 
-    refs.headerBg.classList.add('header__background');
+  refs.headerBg.classList.add('header__background');
 
-    refs.heroBlock.classList.remove('visually-hidden');
+  refs.heroBlock.classList.remove('visually-hidden');
 
-    refs.paginationContainer.classList.remove('disactive-pagination');
-  }
+  refs.paginationContainer.classList.remove('disactive-pagination');
 }
