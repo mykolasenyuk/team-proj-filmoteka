@@ -56,7 +56,7 @@ function closeModalEscape(e) {
 function onOpenModalFilmCard(e) {
   e.preventDefault();
   onAddScroll();
-  setLocalStorage();
+  // setLocalStorage();
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -71,19 +71,6 @@ function onOpenModalFilmCard(e) {
       popularity: data.popularity.toFixed(1),
     }))
     .then(data => renderModal(data));
-}
-// local starage
-function setLocalStorage() {
-  const getLocalStorageWatched = localStorage.getItem('watched');
-  const getLocalStorageQueue = localStorage.getItem('queue');
-  if (getLocalStorageWatched && getLocalStorageQueue !== null) {
-    console.log('Не пустий');
-    return;
-  } else {
-    console.log('Пустий');
-    localStorage.setItem('watched', JSON.stringify({}));
-    localStorage.setItem('queue', JSON.stringify({}));
-  }
 }
 
 // stop scroll
