@@ -27,7 +27,7 @@ function addOpenLightboxClass() {
 
 function onBackdropModalClose(e) {
   if (e.target === refs.backdropModalImg) {
-    onStopScroll()
+    onStopScroll();
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
   }
@@ -38,7 +38,7 @@ window.addEventListener('click', onCloseModalByBtn);
 
 function onCloseModalByBtn(e) {
   if (e.target.classList.contains('button__close')) {
-    onStopScroll()
+    onStopScroll();
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
   }
@@ -46,7 +46,7 @@ function onCloseModalByBtn(e) {
 
 function closeModalEscape(e) {
   if (e.code === 'Escape') {
-    onStopScroll()
+    onStopScroll();
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
   }
@@ -55,8 +55,8 @@ function closeModalEscape(e) {
 
 function onOpenModalFilmCard(e) {
   e.preventDefault();
-  onAddScroll()
-
+  onAddScroll();
+  setLocalStorage();
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -64,10 +64,26 @@ function onOpenModalFilmCard(e) {
   // console.log(movieId);
   clearCardList();
   addOpenLightboxClass();
-  apiService.getModalMovie(movieId).then(data => ({
+  apiService
+    .getModalMovie(movieId)
+    .then(data => ({
       ...data,
       popularity: data.popularity.toFixed(1),
-    })).then(data => renderModal(data));
+    }))
+    .then(data => renderModal(data));
+}
+// local starage
+function setLocalStorage() {
+  const getLocalStorageWatched = localStorage.getItem('watched');
+  const getLocalStorageQueue = localStorage.getItem('queue');
+  if (getLocalStorageWatched && getLocalStorageQueue !== null) {
+    console.log('Не пустий');
+    return;
+  } else {
+    console.log('Пустий');
+    localStorage.setItem('watched', JSON.stringify({}));
+    localStorage.setItem('queue', JSON.stringify({}));
+  }
 }
 
 // stop scroll
@@ -83,14 +99,14 @@ function clearCardList() {
   refs.backdropModalImg.innerHTML = '';
 }
 const renderModal = data => {
-  data = storage.setMovieFlags(data)
+  data = storage.setMovieFlags(data);
   const modalMarkapMovieCard = movieCardTmpl(data);
   // console.log(modalMarkapMovieCard);
   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
   document.querySelector('.add_queue').addEventListener('click', event => {
     storage.addQueue(data);
-    event.target.classList.toggle('queued')
-   });
+    event.target.classList.toggle('queued');
+  });
   document.querySelector('.add_watched').addEventListener('click', () => {
     storage.addWatched(data);
     event.target.classList.toggle('watched');

@@ -1,35 +1,38 @@
 {{#if this}}
-{{#each this}}
-
-<div class="movies-card-wrapper">
-    <div class='movies-card'>
-      <p class='movies-card-vote'>
-        {{vote_average}}
-      </p>
-      <img data-action='{{id}}' class='movies-card-img' src="https://image.tmdb.org/t/p/w500{{poster_path}}"
-        alt="{{title}}"  onError="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" />
-    
-      <div class='description'>
-        <p class='description-title'>
-          {{title}}
+  {{#each this}}
+    <div class='movies-card-wrapper'>
+      <div class='movies-card'>
+        <p class='movies-card-vote'>
+          {{vote_average}}
         </p>
-        <div class="genre-release-date-container">
-          <div class='description-genre-release-date'>
-            {{#each genres}}
-            <p class='genre-release-date-point'>{{name}}</p>
-            {{/each}}
-          </div>
-          <div>
-            <span class='description-release-date'>
-              {{release_date}}
-            </span>
+        <img
+          data-action="{{id}}"
+          class='movies-card-img'
+          src="https://image.tmdb.org/t/p/w500{{poster_path}}"
+          alt="{{title}}"
+          onError="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';"
+        />
+
+        <div class='description'>
+          <p class='description-title'>
+            {{title}}
+          </p>
+          <div class='genre-release-date-container'>
+            <div class='description-genre-release-date'>
+              {{#each genres}}
+                <p class='genre-release-date-point'>
+                  {{name}}
+                </p>
+              {{/each}}
+              <p class='description-release-date'>
+                {{release_date}}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-
-{{/each}}
+  {{/each}}
 {{else}}
-No movies here!
+  No movies here!
 {{/if}}

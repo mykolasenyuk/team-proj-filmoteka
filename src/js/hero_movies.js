@@ -11,18 +11,16 @@ const moviesContainer = document.querySelector('.js-movies-container');
 const logo = document.querySelector('.logo');
 const homeBtn = document.querySelector('.home-button');
 // console.log(apiService.trendingFilms());
-
 renderPage();
 trendingFilmsPagination();
-
+// stopSpin();
 homeBtn.addEventListener('click', onLogo);
 
 logo.addEventListener('click', onLogo);
 
 function onLogo(evt) {
-  evt.preventDefault();
   clearMarkup();
-  // startSpin();
+  evt.preventDefault();
   renderPage();
   trendingFilmsPagination();
   // stopSpin();
@@ -50,13 +48,12 @@ function clearMarkup() {
 
 function renderFilmsCard(data) {
   moviesContainer.insertAdjacentHTML('beforeend', moviesList(data));
-   const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
-   moviesCardVoteEl.forEach(classList => {
-    classList.classList.add("is-hidden");
-   });
-  
-  stopSpin();
+  const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
+  moviesCardVoteEl.forEach(classList => {
+    classList.classList.add('is-hidden');
+  });
 
+  stopSpin();
 }
 
 function renderPage() {

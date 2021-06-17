@@ -1,3 +1,4 @@
+import { startSpin, stopSpin } from './spinner/spinner';
 const listElement = document.querySelector('.js-movies-container');
 const paginationElement = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
@@ -115,6 +116,7 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     if (currentPage > 1) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage--;
+
       setupPagination(listItems, paginationElement, rows);
       callback(listElement, currentPage, searchQuery);
     }
@@ -132,12 +134,13 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     }
     disableArrowBtn(totalPages);
   }
-
+  startSpin();
   setupPagination(listItems, paginationElement, rows);
   arrowLeft.onclick = onArrowLeftClick;
   arrowRight.onclick = onArrowRightClick;
 
   disableArrowBtn(totalPages);
+  stopSpin();
 }
 
 paginationElement.addEventListener('click', disableArrowBtnAfterPageClick);
