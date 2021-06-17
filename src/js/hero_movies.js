@@ -102,9 +102,9 @@ window.addEventListener('click', nextPagePagination);
 function nextPagePagination(e) {
   if (e.target.classList.contains('btn__pagination__next')) {
     document.querySelector('.arrow_right').click();
-    onStopScroll();
+    onStopScroll()
   }
 };
 function onStopScroll() {
-  document.body.classList.remove('stop-scrolling');
+  document.body.classList.remove('stop-scrolling')
 };
