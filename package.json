@@ -29,6 +29,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "handlebars": "^4.7.7",
+    "noty": "^3.2.0-beta-deprecated",
     "spin.js": "^4.1.0"
   }
 }

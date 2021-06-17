@@ -1,4 +1,5 @@
 import { startSpin, stopSpin } from './spinner/spinner';
+
 const listElement = document.querySelector('.js-movies-container');
 const paginationElement = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
@@ -12,7 +13,6 @@ function resetCurrentPage() {
   currentPage = 1;
 }
 
-// главная функция для рендера pagination. Callback - функция для работы с fetch (зависит от раздела, где рисуем pagination)
 export function renderPagination(totalPages, listItems, callback, searchQuery) {
   paginationElement.innerHTML = '';
   resetCurrentPage();
@@ -56,7 +56,6 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
         wrapper.appendChild(btn);
       }
 
-      // добавляет троеточие в pagination в зависимости от текущей страницы и общего к-ва страниц
       if (
         totalPages >= 6 &&
         i == 1 &&
@@ -79,9 +78,10 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
         wrapper.insertBefore(threeDotsEl, wrapper[1]);
       }
     }
+    stopSpin();
   }
 
-  // создает троеточия для pagination
+  // added dots in pagination
   function addThreeDotsBlock() {
     const threeDots = document.createElement('div');
     threeDots.classList.add('threeDots');
@@ -96,6 +96,7 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     if (currentPage == page) button.classList.add('active');
 
     button.addEventListener('click', function () {
+      startSpin();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage = page;
       // console.log(currentPage);
@@ -111,9 +112,9 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     return button;
   }
 
-  // ф-кция для отслеживания кликов по стрелке влево
   function onArrowLeftClick() {
     if (currentPage > 1) {
+      startSpin();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage--;
 
@@ -124,9 +125,9 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     disableArrowBtn(totalPages);
   }
 
-  // ф-кция для отслеживания кликов по стрелке вправо
   function onArrowRightClick() {
     if (currentPage < totalPages) {
+      startSpin();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage++;
       setupPagination(listItems, paginationElement, rows);
@@ -134,13 +135,12 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
     }
     disableArrowBtn(totalPages);
   }
-  startSpin();
+
   setupPagination(listItems, paginationElement, rows);
   arrowLeft.onclick = onArrowLeftClick;
   arrowRight.onclick = onArrowRightClick;
 
   disableArrowBtn(totalPages);
-  stopSpin();
 }
 
 paginationElement.addEventListener('click', disableArrowBtnAfterPageClick);
@@ -153,7 +153,7 @@ function disableArrowBtnAfterPageClick(e) {
   }
 }
 
-// делает неактивными кнопки-стрелки на первой и последней  странице
+// deactivate btns
 function disableArrowBtn(totalPages) {
   if (currentPage === 1) {
     arrowLeft.classList.add('disabled-arrow');
