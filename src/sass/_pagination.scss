@@ -1,3 +1,5 @@
+
+
 .pagination__container {
   display: flex;
   flex-direction: column;
@@ -48,6 +50,10 @@
     color: #FFFFFF;
     border-radius: 5px;
   }
+  
+}
+.disactive-pagination {
+  display: none;
 }
 @media screen and (max-width: 400px) {
   .pagenumbers button {
@@ -118,39 +124,38 @@
     text-align: center;
    font-size: 20px
 }
-.back_to_top{
-  color:black;
-  text-align:center;
-  font-size:135%;
-  margin:2em;
-  padding-top:1.8em;
+.back_to_top {
   position: fixed;
-  font-family: 'Calibri', sans-serif;
   bottom: 80px;
   right: 40px;
-  border-color:black;
-  text-decoration:none;
-  transition:all .3s ease-out;
-}
-.back_to_top:before{
-  content:'▲';
-  font-size:.9em;
-  position:absolute;
-  top:0;
-  left:50%;
-  margin-left:-.7em;
-  border:solid .13em black;
-  border-radius:10em;
-  width:1.4em;
-  height:1.4em;
-  line-height:1.3em;
-  border-color:inherit;
-  transition:transform .5s ease-in;
+  z-index: 9999;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #ff6b08;
+  color: #ff6b01;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: none;
+  border-radius: 50%;
+  color: white;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 10px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 .back_to_top:hover{
-  color:$color-accent;
-  border-color:$color-accent;
+  background-color: #ff9100;
+  transform: scale(1.03);
+  transition: 400ms cubic-bezier(0.1, 0.9, 0.9, 1.5);
+  box-shadow: -2px 7px 42px 34px rgb(240 85 0 / 35%);
 }
-.back_to_top:hover:before{
-  transform: rotate(360deg);
+
+
+.back_to_top-show {
+  display: block;
 }
