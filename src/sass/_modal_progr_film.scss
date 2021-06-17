@@ -8,11 +8,11 @@ a {
   margin: 0;
   list-style: none;
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+// img {
+//   display: block;
+//   max-width: 100%;
+//   height: auto;
+// }
 
 h1,
 h2,
@@ -272,7 +272,6 @@ p {
   @media screen and (min-width: 768px) {
     width: 264px;
     height: 374px;
-
   }
   @media screen and (min-width: 1024px) {
     width: 396px;
