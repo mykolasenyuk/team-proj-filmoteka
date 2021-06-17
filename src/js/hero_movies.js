@@ -98,5 +98,10 @@ function trendingFilmsPagination() {
     renderPagination(data.total_pages, data.results, moviesByPage);
   });
 }
-
+// пока не работает 
+// const nextBtnPagin = document.querySelector('.btn__pagination__next')
+// nextBtnPagin.addEventListener('click', nextPagePagination)
+// function nextPagePagination() {
+//   renderPagination.onArrowRightClick()
+// }
 // console.log(apiService.getTrendingMovies());
