@@ -105,12 +105,12 @@
     margin-bottom: 30px;
     flex-basis: calc(100% / 3 - 30px);
   }
-  .movies-card-img:hover,
-  .movies-card-img:focus {
+  .movies-card-wrapper:hover,
+  .movies-card-wrapper:focus {
     transform: scale(1.03);
     transition: 400ms cubic-bezier(0.1, 0.9, 0.9, 1.5);
     box-shadow: -2px 7px 42px 34px rgba(240, 85, 0, 0.35);
-    border-radius: 5px;
+    border-radius: 4px;
   }
 
   .movies-card-wrapper:not(:last-child) {

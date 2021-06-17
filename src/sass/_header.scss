@@ -295,3 +295,18 @@
 
   justify-content: center;
 }
+
+.no-movie {
+  border-radius: 10px;
+  box-shadow: -4px 0px 100px 21px rgba(144, 90, 17, 1);
+}
+.no-movie-p {
+  z-index: 999999;
+  align-content: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #ff001b;
+  text-shadow: #ff6b01;
+}
