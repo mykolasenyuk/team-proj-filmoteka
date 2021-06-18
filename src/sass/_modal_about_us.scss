@@ -25,10 +25,7 @@
     overflow: scroll;
   }
 }
-.stop-scrolling {
-  height: 100%;
-  overflow: hidden;
-}
+
 .title_footer_modal {
   font-size: 36px;
   text-align: center;
@@ -38,7 +35,7 @@
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -10%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 48px 20px 40px;
   // background-color: #ffffff;
@@ -299,4 +296,7 @@
   color: var(--title-text-color);
   font-weight: normal;
   padding-top: 10px;
+}
+.team-img {
+  width: 150px;
 }

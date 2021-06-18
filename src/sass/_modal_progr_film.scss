@@ -1,3 +1,36 @@
+a {
+  display: block;
+  text-decoration: none;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  display: block;
+  // max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
@@ -15,6 +48,7 @@
   transition: all 250ms linear;
   z-index: 1;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   overflow-y: hidden;
   padding-left: 28px;
   padding-right: 30px;
@@ -34,16 +68,16 @@
 }
 
 .container_modal_progr {
-  position: absolute;
-  left: 50%;
+  position: relative;
   top: 50%;
-  transform: translate(-50%, -35%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 280px;
+
   padding: 48px 20px 40px;
   background-color: #ffffff;
   @media screen and (min-width: 768px) {
-    transform: translate(-50%, -50%);
     max-width: 618px;
     padding-left: 28px;
     padding-right: 30px;
@@ -109,6 +143,7 @@
     margin-bottom: 10px;
   }
 }
+
 .vote_distance {
   margin-right: 47px;
   @media screen and (min-width: 1024px) {
@@ -222,17 +257,10 @@
   }
 }
 .buttons_modal_progr {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  background-image: url(../images/icon-close.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ffffff;
-  cursor: pointer;
-  border: none;
+  display: flex;
+  @media screen and (min-width: 320px) and (max-width: 1023px) {
+    justify-content: space-between;
+  }
 }
 .icon-crist {
   width: 30px;
