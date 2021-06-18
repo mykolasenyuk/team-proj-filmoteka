@@ -1,10 +1,10 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
 import { renderPagination } from './pagination';
-import { startSpin, stopSpin } from './spinner/spinner';
+
 import '../sass/main.scss';
 import Storage from './services/localStorage';
-const storage = new Storage();
+import Noty from 'noty';
 
 const apiService = new ApiService();
 
@@ -13,23 +13,20 @@ const moviesContainer = document.querySelector('.js-movies-container');
 const logo = document.querySelector('.logo');
 const homeBtn = document.querySelector('.home-button');
 setLocalStorage();
-// console.log(apiService.trendingFilms());
+
 renderPage();
 trendingFilmsPagination();
-// stopSpin();
-homeBtn.addEventListener('click', onLogo);
 
+homeBtn.addEventListener('click', onLogo);
 logo.addEventListener('click', onLogo);
 
 function onLogo(evt) {
   clearMarkup();
-  evt.preventDefault();
   renderPage();
   trendingFilmsPagination();
-  // stopSpin();
 }
 
-// local starage
+// local storage
 function setLocalStorage() {
   const getLocalStorageWatched = localStorage.getItem('watched');
   const getLocalStorageQueue = localStorage.getItem('queue');
@@ -41,12 +38,12 @@ function setLocalStorage() {
   }
 }
 
-function trendingFilms() {
+export function trendingFilms() {
   return apiService
     .getTrendingMovies()
     .then(data => data.results)
     .then(data => {
-      // вставляем жанры и фиксим дату
+      // fixs data and genres
       return apiService.getMovieById().then(genresArray => {
         return data.map(film => ({
           ...film,
@@ -67,20 +64,26 @@ function renderFilmsCard(data) {
   moviesCardVoteEl.forEach(classList => {
     classList.classList.add('is-hidden');
   });
-
-  stopSpin();
 }
 
-function renderPage() {
+export function renderPage() {
   apiService.page = 1;
   trendingFilms()
     .then(renderFilmsCard)
-    .catch(error => console.log('eRROR'));
+    .catch(error => {
+      console.log('error in renderPage');
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'error',
+        text: 'Something went wrong!',
+        timeout: 3500,
+      }).show();
+    });
 }
 
 function trendingMoviesByPage(page) {
   apiService.pageNum = page;
-  //   console.log(apiService.getTrendingMoviesPage());
   return trendingFilms();
 }
 
@@ -88,14 +91,36 @@ function moviesByPage(wrapper, page) {
   wrapper.innerHTML = '';
   trendingMoviesByPage(page)
     .then(renderFilmsCard)
-    .catch(error => console.log('errr'));
+    .catch(error => {
+      console.log(`Error in moviesByPage`);
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'error',
+        text: 'Something went wrong!',
+        timeout: 3500,
+      }).show();
+    });
 }
 
-function trendingFilmsPagination() {
-  apiService.getTrendingMovies().then(data => {
-    renderPagination(data.total_pages, data.results, moviesByPage);
-  });
+export function trendingFilmsPagination() {
+  apiService
+    .getTrendingMovies()
+    .then(data => {
+      renderPagination(data.total_pages, data.results, moviesByPage);
+    })
+    .catch(error => {
+      console.log(`Error in trendingFilmsPagination`);
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'error',
+        text: 'Something went wrong!',
+        timeout: 3500,
+      }).show();
+    });
 }
+
 
 // Создает функцию для пагинации стрелки (nextPage)
 window.addEventListener('click', nextPagePagination);
@@ -108,3 +133,4 @@ function nextPagePagination(e) {
 function onStopScroll() {
   document.body.classList.remove('stop-scrolling')
 };
+

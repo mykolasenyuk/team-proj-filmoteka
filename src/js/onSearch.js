@@ -1,7 +1,10 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
 import { renderPagination } from './pagination';
+import { startSpin, stopSpin } from './spinner/spinner';
+import * as renderHero from './hero_movies';
 const apiService = new ApiService();
+import Noty from 'noty';
 
 const refs = {
   searchInput: document.querySelector('.search__input-wrapper'),
@@ -25,31 +28,81 @@ function searchingFilms() {
 
 refs.searchInput.addEventListener('submit', onSearch);
 
-// console.log(searchingFilms());
-
 function onSearch(e) {
   clearMarkup();
+  startSpin();
   apiService.pageNum = 1;
   e.preventDefault();
   apiService.query = e.currentTarget.elements.query.value;
   if (apiService.query === '') {
-    console.log('Enter valid name');
+    stopSpin();
+    new Noty({
+      theme: 'sunset',
+      layout: 'topRight',
+      type: 'error',
+      text: `😬 Please enter valid name!`,
+      timeout: 3500,
+    }).show();
+
+    renderPage();
+    renderHero.trendingFilmsPagination();
+
+    return;
+  } else {
+    renderSearchMovies(apiService.query);
+    searchingFilmPagin(apiService.query);
+    e.currentTarget.elements.query.value = '';
     return;
   }
-  renderSearchMovies(apiService.query);
-
-  searchingFilmPagin(apiService.query);
-  e.currentTarget.elements.query.value = '';
 }
 
 function renderSearchMovies(searchQuery) {
   apiService.query = searchQuery;
-  searchingFilms().then(renderFilmsCard);
+  searchingFilms()
+    .then(renderFilmsCard)
+    .catch(error => {
+      console.log('error in renderSearchMovies');
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'error',
+        text: 'Something went wrong!',
+        timeout: 3500,
+      }).show();
+    });
 }
 
 function searchMoviesByPage(wrapper, page, searchQuery) {
   wrapper.innerHTML = '';
-  searchingFilmsByPage(page, searchQuery).then(renderFilmsCard);
+  searchingFilmsByPage(page, searchQuery)
+    .then(renderFilmsCard)
+    .catch(error => {
+      console.log('error in searchMoviesByPage');
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'error',
+        text: 'Something went wrong!',
+        timeout: 3500,
+      }).show();
+    });
+}
+// render page when search is not valid
+function renderPage() {
+  apiService.page = 1;
+  renderHero
+    .trendingFilms()
+    .then(renderFilmsCard)
+    .catch(error => {
+      console.log('error in renderPage');
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'error',
+        text: 'Something went wrong!',
+        timeout: 3500,
+      }).show();
+    });
 }
 
 function searchingFilmPagin(searchQuery) {
@@ -60,11 +113,34 @@ function searchingFilmPagin(searchQuery) {
     .then(data => {
       renderPagination(data.total_pages, data.results, searchMoviesByPage, searchQuery);
       if (data.total_pages === 0) {
-        console.log('searching Error');
+        stopSpin();
+        new Noty({
+          theme: 'sunset',
+          layout: 'topRight',
+          type: 'error',
+          text: `🧐 Sorry. We did not find any results from your search. Please,try again.`,
+          timeout: 3500,
+        }).show();
+
+        renderPage();
+        renderHero.trendingFilmsPagination();
         return;
       }
+      new Noty({
+        theme: 'sunset',
+        layout: 'topRight',
+        type: 'success',
+        text: `🥳 ${data.total_results} Movies finded!`,
+        timeout: 3500,
+      }).show();
     })
-    .catch(err => console.log('eror on searchingPagination'));
+    .catch(error => {
+      console.log('error in searchingFilmPagin');
+      noty.show();
+      noty.setType('error');
+      noty.setText('Something went wrong!');
+      noty.setTimeout(4000);
+    });
 }
 
 function clearMarkup() {

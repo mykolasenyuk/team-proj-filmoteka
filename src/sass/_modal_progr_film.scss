@@ -8,11 +8,11 @@ a {
   margin: 0;
   list-style: none;
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+// img {
+//   display: block;
+//   max-width: 100%;
+//   height: auto;
+// }
 
 h1,
 h2,
@@ -68,16 +68,17 @@ p {
 }
 
 .container_modal_progr {
-  position: relative;
-  top: 50%;
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translate(-50%, -35%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 280px;
 
   padding: 48px 20px 40px;
   background-color: #ffffff;
   @media screen and (min-width: 768px) {
+    transform: translate(-50%, -50%);
     max-width: 618px;
     padding-left: 28px;
     padding-right: 30px;
@@ -272,7 +273,6 @@ p {
   @media screen and (min-width: 768px) {
     width: 264px;
     height: 374px;
-
   }
   @media screen and (min-width: 1024px) {
     width: 396px;

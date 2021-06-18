@@ -1,7 +1,7 @@
 {{#if this}}
   {{#each this}}
-    <div class='movies-card-wrapper'>
-      <div class='movies-card'>
+    {{!-- <div class='movies-card-wrapper'> --}}
+      <li class='movies-card'>
         <p class='movies-card-vote'>
           {{vote_average}}
         </p>
@@ -17,21 +17,22 @@
           <p class='description-title'>
             {{title}}
           </p>
-          <div class='genre-release-date-container'>
+          {{!-- <div class='genre-release-date-container'> --}}
             <div class='description-genre-release-date'>
               {{#each genres}}
                 <p class='genre-release-date-point'>
                   {{name}}
                 </p>
               {{/each}}
-              <p class='description-release-date'>
-                {{release_date}}
-              </p>
             </div>
+            <p class='description-release-date'>
+              {{release_date}}
+            </p>
           </div>
+
         </div>
-      </div>
-    </div>
+      </li>
+    {{!-- </div> --}}
   {{/each}}
   <div class="arrow-slider">
     {{!-- <div class="btn__pagination__next"></div> --}}
@@ -55,7 +56,7 @@
 {{else}}
   <div class='container'>
     <p class='no-movie-p'>
-      No movies here! Please add to "WACHED" or "QUEUE".
+      There are no movies here! Please add to "WACHED" or "QUEUE".
     </p>
     {{! <img
       class='no-movie'
