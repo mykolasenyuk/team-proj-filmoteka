@@ -100,4 +100,4 @@ var t,e=arguments[3],n=require("process");!function(e,n){"object"==typeof export
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/services/apiService"),require("./js/pagination"),require("./js/heroMovies"),require("./js/modalFilm"),require("./js/onSearch"),require("./js/aboutUs"),require("./js/myLibrary"),require("./js/backToTop");
 },{"./sass/main.scss":"clu1","./js/services/apiService":"o1Xb","./js/pagination":"o8lo","./js/heroMovies":"Tewr","./js/modalFilm":"R7WP","./js/onSearch":"MoSP","./js/aboutUs":"kIdM","./js/myLibrary":"EZhS","./js/backToTop":"PQ5t"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-proj-filmoteka/src.527fdf92.js.map
+//# sourceMappingURL=/team-proj-filmoteka/src.406151b0.js.map
