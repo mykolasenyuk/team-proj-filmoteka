@@ -1,24 +1,20 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
 import { renderPagination } from './pagination';
-
 import '../sass/main.scss';
-import Storage from './services/localStorage';
 import Noty from 'noty';
+import refs from './refs/refs';
 
 const apiService = new ApiService();
-
 const moviesContainer = document.querySelector('.js-movies-container');
 
-const logo = document.querySelector('.logo');
-const homeBtn = document.querySelector('.home-button');
-setLocalStorage();
 
+setLocalStorage();
 renderPage();
 trendingFilmsPagination();
 
-homeBtn.addEventListener('click', onLogo);
-logo.addEventListener('click', onLogo);
+refs.homeBtn.addEventListener('click', onLogo);
+refs.logo.addEventListener('click', onLogo);
 
 function onLogo(evt) {
   clearMarkup();

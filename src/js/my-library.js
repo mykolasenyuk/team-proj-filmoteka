@@ -1,24 +1,20 @@
 import refs from './refs/refs';
-import apiService from './services/apiService';
 import moviesList from '../templates/hero_movies.hbs';
 import { stopSpin } from './spinner/spinner';
 import localStorage from './services/localStorage';
 
 let storage = new localStorage();
 
-const moviesContainer = document.querySelector('.js-movies-container');
-
 function clearMarkup() {
-  moviesContainer.innerHTML = '';
+  refs.filmsMarkup.innerHTML = '';
 }
 
 function renderFilmsCard(data) {
-  moviesContainer.insertAdjacentHTML('beforeend', moviesList(data));
+  refs.filmsMarkup.insertAdjacentHTML('beforeend', moviesList(data));
   const moviesCardVoteEl = document.querySelectorAll('.movies-card-vote');
   moviesCardVoteEl.forEach(classList => {
     classList.classList.add('is-hidden');
   });
-  // console.log(moviesList(data));
   stopSpin();
 }
 
@@ -52,18 +48,15 @@ function watchedFilmsRender() {
       ...film,
       release_date: film.release_date.slice(0, 4),
     })),
-  ); // Делает карточки Watched
+  );
+
+  // Делает карточки Watched
   refs.watchedBtn.classList.add('active');
   refs.queueBtn.classList.remove('active');
   // document.querySelector('.arrow-slider').classList.toggle('is-hidden');//скрывает пагинацию стрелки
 
 }
-// console.log(
-//   storage.getWatched().map(film => ({
-//     ...film,
-//     release_date: film.release_date.slice(0, 4),
-//   })),
-// );
+
 function queueFilmsRender() {
   
   clearMarkup();
@@ -72,7 +65,9 @@ function queueFilmsRender() {
       ...film,
       release_date: film.release_date.slice(0, 4),
     })),
-  ); // Делает карточки Queue
+  );
+
+  // Делает карточки Queue
   refs.queueBtn.classList.add('active');
   refs.watchedBtn.classList.remove('active');
   // document.querySelector('.arrow-slider').classList.toggle('is-hidden');//скрывает пагинацию стрелки
