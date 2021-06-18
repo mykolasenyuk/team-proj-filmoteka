@@ -29,17 +29,17 @@
 .title_footer_modal {
   font-size: 36px;
   text-align: center;
- /*  margin-bottom: 30px; */
+  /*  margin-bottom: 30px; */
 }
 .modal {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, -50%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 48px 20px 40px;
   // background-color: #ffffff;
-  min-height: 100vh;
+
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
@@ -121,8 +121,8 @@
   pointer-events: none;
 }
 /* Форма для модалки */
- .form-modal {
- /*  display: flex;
+.form-modal {
+  /*  display: flex;
   flex-direction: column; */
 
   & p {
@@ -142,7 +142,7 @@
     @media screen and (max-width: 768px) {
       padding-top: 10px;
     }
-  } 
+  }
 
   & label {
     padding-bottom: 4px;
@@ -260,7 +260,7 @@
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
   margin-top: 0;
- /*  padding-bottom: 50px; */
+  /*  padding-bottom: 50px; */
 }
 
 .section-names {
