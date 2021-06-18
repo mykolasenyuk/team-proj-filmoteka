@@ -2,16 +2,13 @@ import movieCardTmpl from '../templates/cardMovie.hbs';
 import ApiService from './services/apiService';
 import Storage from './services/localStorage';
 import Noty from 'noty';
-const storage = new Storage();
+import refs from './refs/refs';
 
+const storage = new Storage();
 const apiService = new ApiService();
-const refs = {
-  backdropModalImg: document.querySelector('.js-lightbox'),
-  moviesContainer: document.querySelector('.js-movies-container'),
-};
 
 refs.backdropModalImg.addEventListener('click', onBackdropModalClose);
-refs.moviesContainer.addEventListener('click', onOpenModalFilmCard);
+refs.filmsMarkup.addEventListener('click', onOpenModalFilmCard);
 
 function addOpenLightboxClass() {
   refs.backdropModalImg.classList.add('is-open');
@@ -68,9 +65,6 @@ function onOpenModalFilmCard(e) {
       popularity: data.popularity.toFixed(1),
     }))
     .then(data => renderModal(data));
-  // if (document.querySelector('.add_watched').classList.contains('watched')) {
-  //   document.querySelector('.add_watched').textContent = 'REMOVE';
-  // }
 }
 
 // stop scroll
@@ -102,10 +96,8 @@ function clearCardList() {
 const renderModal = data => {
   data = storage.setMovieFlags(data);
   const modalMarkapMovieCard = movieCardTmpl(data);
-  // console.log(modalMarkapMovieCard);
 
   refs.backdropModalImg.insertAdjacentHTML('beforeend', modalMarkapMovieCard);
-  // let contentText = (document.querySelector('.add_watched').textContent = 'remove');
   checkClassBtns();
 
   document.querySelector('.add_queue').addEventListener('click', event => {
@@ -117,7 +109,7 @@ const renderModal = data => {
         theme: 'sunset',
         layout: 'topRight',
         type: 'success',
-        text: ` 🤩Added to QUEUE`,
+        text: ` 🤩 Added to 'QUEUE'`,
         timeout: 3500,
       }).show();
     } else {
@@ -126,7 +118,7 @@ const renderModal = data => {
         theme: 'sunset',
         layout: 'topRight',
         type: 'alert',
-        text: ` 🙄  removed from QUEUE`,
+        text: ` 😉 Removed from 'QUEUE'`,
         timeout: 3500,
       }).show();
     }
@@ -142,7 +134,7 @@ const renderModal = data => {
         theme: 'sunset',
         layout: 'topRight',
         type: 'success',
-        text: ` 🤩Added to WATCHED`,
+        text: ` 🤩 Added to 'WATCHED'`,
         timeout: 3500,
       }).show();
     } else {
@@ -151,18 +143,9 @@ const renderModal = data => {
         theme: 'sunset',
         layout: 'topRight',
         type: 'alert',
-        text: ` 🙄 Removed from WATCHED`,
+        text: ` 😉 Removed from 'WATCHED'`,
         timeout: 3500,
       }).show();
     }
   });
 };
-console.log(document.querySelector('.add_watched'));
-
-function btns() {
-  const refs = {
-    watched: document.querySelector('.add_watched'),
-    queue: document.querySelector('.add_queue'),
-  };
-  return refs;
-}

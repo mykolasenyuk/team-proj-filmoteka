@@ -1,15 +1,11 @@
 import moviesList from '../templates/hero_movies.hbs';
 import ApiService from './services/apiService';
+import refs from './refs/refs';
 import { renderPagination } from './pagination';
 import { startSpin, stopSpin } from './spinner/spinner';
 import * as renderHero from './hero_movies';
 const apiService = new ApiService();
 import Noty from 'noty';
-
-const refs = {
-  searchInput: document.querySelector('.search__input-wrapper'),
-  filmsMarkup: document.querySelector('.js-movies-container'),
-};
 
 function searchingFilms() {
   return apiService
@@ -26,7 +22,7 @@ function searchingFilms() {
     });
 }
 
-refs.searchInput.addEventListener('submit', onSearch);
+refs.searchWrap.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   clearMarkup();
@@ -87,6 +83,7 @@ function searchMoviesByPage(wrapper, page, searchQuery) {
       }).show();
     });
 }
+
 // render page when search is not valid
 function renderPage() {
   apiService.page = 1;

@@ -5,13 +5,13 @@
         <p class='movies-card-vote'>
           {{vote_average}}
         </p>
-        <img
+      <div class="image-wrapper">  <img
           data-action="{{id}}"
           class='movies-card-img'
           src="https://image.tmdb.org/t/p/w500{{poster_path}}"
           alt="{{title}}"
-          onError="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';"
-        />
+          onError="this.onerror=null;this.src='https://www.peakndt.com/wp-content/uploads/2017/02/No_picture_available.png';"
+        /></div>
 
         <div class='description'>
           <p class='description-title'>
@@ -37,7 +37,7 @@
 {{else}}
   <div class='container'>
     <p class='no-movie-p'>
-      There are no movies here! Please add to "WACHED" or "QUEUE".
+      🙄There are no movies here!
     </p>
     {{! <img
       class='no-movie'
