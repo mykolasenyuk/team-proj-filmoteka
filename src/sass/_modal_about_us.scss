@@ -29,7 +29,7 @@
 .title_footer_modal {
   font-size: 36px;
   text-align: center;
-  margin-bottom: 30px;
+ /*  margin-bottom: 30px; */
 }
 .modal {
   position: relative;
@@ -121,9 +121,9 @@
   pointer-events: none;
 }
 /* Форма для модалки */
-.form-modal {
-  display: flex;
-  flex-direction: column;
+ .form-modal {
+ /*  display: flex;
+  flex-direction: column; */
 
   & p {
     font-weight: bold;
@@ -142,7 +142,7 @@
     @media screen and (max-width: 768px) {
       padding-top: 10px;
     }
-  }
+  } 
 
   & label {
     padding-bottom: 4px;
@@ -260,7 +260,7 @@
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
   margin-top: 0;
-  padding-bottom: 50px;
+ /*  padding-bottom: 50px; */
 }
 
 .section-names {
