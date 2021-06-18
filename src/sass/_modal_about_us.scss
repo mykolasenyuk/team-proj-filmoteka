@@ -1,3 +1,16 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
@@ -35,11 +48,10 @@
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, -50%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 48px 20px 40px;
   // background-color: #ffffff;
-  min-height: 100vh;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
@@ -72,31 +84,6 @@
     background-position: 0% 50%;
   }
 }
-
-// .close-btn {
-//   border-radius: 20px;
-//   // // background: 1px solid rgba(0, 0, 0, 0.1);
-//   // border: 1px solid rgba(0, 0, 0, 0.1);
-//   // cursor: pointer;
-//   position: absolute;
-//   top: 12px;
-//   right: 8px;
-//   padding: 6px;
-//   background-image: url('../images/close_main.svg');
-//   background-repeat: no-repeat;
-//   fill: black;
-//   // transition-property: fill;
-//   // transition-duration: 250ms;
-//   // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-//   &:hover,
-//   &:focus {
-//     fill: var(--accent-color);
-//   }
-//   @media screen and (max-width: 480px) {
-//     top: 15px;
-//     right: 20px;
-//   }
-// }
 
 .close-btn {
   position: absolute;
