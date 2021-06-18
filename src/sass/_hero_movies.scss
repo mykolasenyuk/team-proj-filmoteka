@@ -210,6 +210,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .arrow-slider .btn__pagination__next {
   width: 200px;
   height: auto;
