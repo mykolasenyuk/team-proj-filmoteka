@@ -3,7 +3,7 @@ import ApiService from './services/apiService';
 import refs from './refs/refs';
 import { renderPagination } from './pagination';
 import { startSpin, stopSpin } from './spinner/spinner';
-import * as renderHero from './hero_movies';
+import * as renderHero from './heroMovies';
 const apiService = new ApiService();
 import Noty from 'noty';
 
