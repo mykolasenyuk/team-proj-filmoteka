@@ -123,14 +123,14 @@ export function trendingFilmsPagination() {
 
 
 // Создает функцию для пагинации стрелки (nextPage)
-window.addEventListener('click', nextPagePagination);
-function nextPagePagination(e) {
-  if (e.target.classList.contains('btn__pagination__next')) {
-    document.querySelector('.arrow_right').click();
-    onStopScroll()
-  }
-};
-function onStopScroll() {
-  document.body.classList.remove('stop-scrolling')
-};
+// window.addEventListener('click', nextPagePagination);
+// function nextPagePagination(e) {
+//   if (e.target.classList.contains('btn__pagination__next')) {
+//     document.querySelector('.arrow_right').click();
+//     onStopScroll()
+//   }
+// };
+// function onStopScroll() {
+//   document.body.classList.remove('stop-scrolling')
+// };
 

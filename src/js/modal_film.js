@@ -19,6 +19,7 @@ function addOpenLightboxClass() {
 
   if (refs.backdropModalImg.classList.contains('is-open')) {
     window.addEventListener('keydown', closeModalEscape);
+    document.querySelector('.hidden').classList.add('is-hidden');
   }
 }
 
@@ -27,6 +28,8 @@ function onBackdropModalClose(e) {
     onStopScroll();
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
+  document.querySelector('.hidden').classList.remove('is-hidden');
+
   }
   return;
 }
@@ -38,6 +41,8 @@ function onCloseModalByBtn(e) {
     onStopScroll();
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
+  document.querySelector('.hidden').classList.remove('is-hidden');
+
   }
 }
 
@@ -46,6 +51,8 @@ function closeModalEscape(e) {
     onStopScroll();
     refs.backdropModalImg.classList.remove('is-open');
     refs.backdropModalImg.classList.add('is-hidden');
+  document.querySelector('.hidden').classList.remove('is-hidden');
+
   }
   return;
 }
@@ -53,7 +60,7 @@ function closeModalEscape(e) {
 function onOpenModalFilmCard(e) {
   e.preventDefault();
   onAddScroll();
-
+  
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -157,7 +164,7 @@ const renderModal = data => {
     }
   });
 };
-console.log(document.querySelector('.add_watched'));
+// console.log(document.querySelector('.add_watched'));
 
 function btns() {
   const refs = {
