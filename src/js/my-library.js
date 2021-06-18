@@ -34,6 +34,8 @@ refs.libraryBtn.addEventListener('click', () => {
   refs.headerBg.classList.remove('header__background'); //скрывает фон header
 
   refs.paginationContainer.classList.add('disactive-pagination'); //скрывает пагинацию кнопок
+
+  // document.querySelector('.arrow-slider').classList.toggle('is-hidden');//скрывает пагинацию стрелки
 });
 
 refs.watchedBtn.addEventListener('click', watchedFilmsRender);
@@ -51,9 +53,12 @@ function watchedFilmsRender() {
   // Делает карточки Watched
   refs.watchedBtn.classList.add('active');
   refs.queueBtn.classList.remove('active');
+  // document.querySelector('.arrow-slider').classList.toggle('is-hidden');//скрывает пагинацию стрелки
+
 }
 
 function queueFilmsRender() {
+  
   clearMarkup();
   renderFilmsCard(
     storage.getQueue().map(film => ({
@@ -65,6 +70,8 @@ function queueFilmsRender() {
   // Делает карточки Queue
   refs.queueBtn.classList.add('active');
   refs.watchedBtn.classList.remove('active');
+  // document.querySelector('.arrow-slider').classList.toggle('is-hidden');//скрывает пагинацию стрелки
+
 }
 refs.homeBtn.addEventListener('click', onHomeAndLogo);
 refs.logo.addEventListener('click', onHomeAndLogo);
