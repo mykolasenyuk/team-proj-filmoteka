@@ -73,12 +73,12 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  max-width: 280px;
+  max-width: 282px;
 
   padding: 48px 20px 40px;
   background-color: #ffffff;
   @media screen and (min-width: 768px) {
-    max-width: 618px;
+    max-width: 620px;
     padding-left: 28px;
     padding-right: 30px;
     padding-top: 42px;
